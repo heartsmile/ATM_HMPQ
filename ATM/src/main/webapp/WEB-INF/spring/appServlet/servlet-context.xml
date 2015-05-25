@@ -21,12 +21,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<!-- Tiles configuration -->
-	<beans:bean id="tilesConfigurer"
-		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-		<beans:property name="definitions" value="/WEB-INF/views/tiles.xml" />
-	</beans:bean>
-
 	<annotation-driven />
 	<context:annotation-config />
 	<context:component-scan
