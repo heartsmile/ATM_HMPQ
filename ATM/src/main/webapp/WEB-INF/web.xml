@@ -8,8 +8,9 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/springsecurity-servlet.xml</param-value>
+		<param-value>/WEB-INF/spring/*-context.xml</param-value>
 	</context-param>
+
 
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
@@ -20,6 +21,21 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
+	<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+		<init-param>
+			<param-name>sessionFactory</param-name>
+			<param-value>sessionFactory</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>/</url-pattern>
+	</filter-mapping>
+
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -32,11 +48,6 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>
-		
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/root-context.xml</param-value>
-		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
@@ -44,7 +55,7 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/views/index.jsp</welcome-file>
 	</welcome-file-list>
