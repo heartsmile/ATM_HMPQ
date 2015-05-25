@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Welcome</h1>
+<a href="home">Go home</a>
 </body>
 </html>
