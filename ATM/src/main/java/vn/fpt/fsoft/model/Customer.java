@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Max;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Customer implements Serializable{
@@ -19,9 +22,9 @@ public class Customer implements Serializable{
 	private String phone;
 	private String email;
 	private String addr;
-//	@ElementCollection(targetClass=Integer.class)
-//	private Set<Account> account = new HashSet<Account>(0);
-//	
+	@OneToMany(mappedBy = "custID")
+	private Set<Account> accounts;
+
 	public Integer getCustID() {
 		return custID;
 	}
@@ -62,14 +65,13 @@ public class Customer implements Serializable{
 		this.addr = addr;
 	}
 
-//	@OneToMany(fetch = FetchType.LAZY,mappedBy = "custID")
-//	public Set<Account> getAccount() {
-//		return account;
-//	}
-//
-//	public void setAccount(Set<Account> account) {
-//		this.account = account;
-//	}
+	public Set<Account> getAccounts() {
+		return accounts;
+	}
+
+	public void setAccounts(Set<Account> accounts) {
+		this.accounts = accounts;
+	}
 	
 	
 
