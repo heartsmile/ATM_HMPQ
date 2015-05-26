@@ -20,7 +20,7 @@ public class Customer {
 	}
 
 	public void withDraw(ATM inATM, Card inCard, int inAmount) {
-
+		//
 	}
 
 	public void transfer(ATM inATM, Card inCard, int inToAccount, int inAmount) {

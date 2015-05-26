@@ -27,10 +27,6 @@ public class Card {
 		return account;
 	}
 
-	public void setAccount(int account) {
-		this.account = account;
-	}
-
 	public int getAttempt() {
 		return attempt;
 	}
