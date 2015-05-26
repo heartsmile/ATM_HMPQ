@@ -14,7 +14,7 @@ public class Card {
 	private int account;
 	public String status;
 	private int attempt;
-
+	
 	public String getPIN() {
 		return PIN;
 	}
@@ -28,6 +28,7 @@ public class Card {
 	}
 
 	public int getAttempt() {
+		attempt +=1;
 		return attempt;
 	}
 

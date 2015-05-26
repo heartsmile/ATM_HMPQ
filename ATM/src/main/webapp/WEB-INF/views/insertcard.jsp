@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -186,27 +185,6 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
-<script type="text/javascript">
-	$(document).ready(function() {
-
-		$('button').click(function() {
-			var id = $(this).attr('id');
-			var pinCode = $('#pin').val();
-			if (id == 'clear') {
-				clear(pinCode);
-			} else {
-				$('#pin').val(pinCode + id);
-			}
-			return false;
-		});
-
-		function clear(pinCode) {
-			var text = pinCode.substring(0, pinCode.length - 1);
-			$('#pin').val(text);
-		}
-
-	});
-</script>
 </head>
 <body>
 	<div id="main">
@@ -239,20 +217,16 @@
 					<!-- 						<label class="labelRight">Manh</label> -->
 					<!-- 					</div> -->
 					<center>
-						<h1>Enter your PIN</h1>
-						<c:if test="${empty attempt or attempt < 3}">
-							<form action="loginprocess" method="post">
-								<input type="hidden" name="cardid" value="${card.cardNo }">
-								<table>
-									<tr>
-										<td>PIN</td>
-										<td><input type="text" name="pin" id="pin"></td>
-									</tr>
-								</table>
-								<br> Then press enter button <input type="submit"
-									value="OK">
-							</form>
-						</c:if>
+						<h1>Insert your card</h1>
+						<form action="insertprocess" method="post">
+							<table>
+								<tr>
+									<td>Card number</td>
+									<td><input type="text" name="cardid"></td>
+								</tr>
+							</table>
+							<br> <input type="submit" value="Insert">
+						</form>
 						<p>${message }</p>
 					</center>
 
@@ -271,39 +245,39 @@
 				<table id="keyTable">
 					<tr>
 						<td>
-							<button type="button" class="btn btn-primary" id="1">1</button>
+							<button type="button" class="btn btn-primary">1</button>
 						</td>
 						<td>
-							<button type="button" class="btn btn-primary" id="2">2</button>
+							<button type="button" class="btn btn-primary">2</button>
 						</td>
 						<td>
-							<button type="button" class="btn btn-primary" id="3">3</button>
+							<button type="button" class="btn btn-primary">3</button>
 						</td>
 						<td class="keyFuntion" colspan="2"><button
 								style="width: 80px;" type="button" class="btn btn-success">Enter</button></td>
 					</tr>
 					<tr>
 						<td>
-							<button type="button" class="btn btn-primary" id="4">4</button>
+							<button type="button" class="btn btn-primary">4</button>
 						</td>
 						<td>
-							<button type="button" class="btn btn-primary" id="5">5</button>
+							<button type="button" class="btn btn-primary">5</button>
 						</td>
 						<td>
-							<button type="button" class="btn btn-primary" id="6">6</button>
+							<button type="button" class="btn btn-primary">6</button>
 						</td>
-						<td class="keyFuntion" colspan="2"><button id="clear"
+						<td class="keyFuntion" colspan="2"><button
 								style="width: 80px;" type="button" class="btn btn-warning">Clear</button></td>
 					</tr>
 					<tr>
 						<td>
-							<button type="button" class="btn btn-primary" id="7">7</button>
+							<button type="button" class="btn btn-primary">7</button>
 						</td>
 						<td>
-							<button type="button" class="btn btn-primary" id="8">8</button>
+							<button type="button" class="btn btn-primary">8</button>
 						</td>
 						<td>
-							<button type="button" class="btn btn-primary" id="9">9</button>
+							<button type="button" class="btn btn-primary">9</button>
 						</td>
 						<td class="keyFuntion" colspan="2"><button
 								style="width: 80px;" type="button" class="btn btn-danger">Cancel</button></td>
@@ -313,7 +287,7 @@
 							<button type="button" class="btn btn-primary"></button>
 						</td>
 						<td>
-							<button type="button" class="btn btn-primary" id="0">0</button>
+							<button type="button" class="btn btn-primary">0</button>
 						</td>
 						<td>
 							<button type="button" class="btn btn-primary"></button>
@@ -323,8 +297,8 @@
 					</tr>
 				</table>
 			</div>
-
 		</div>
+	</div>
 	</div>
 </body>
 </html>

@@ -29,7 +29,28 @@ public class UserDao {
 		if (list.size() > 0) {
 			check = true;
 		}
+		
+		session.close();
 
 		return check;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public boolean validateCard(String cardNo){
+		boolean check = false;
+		Session session = sessionFactory.getCurrentSession();
+		
+		session.beginTransaction();
+		List<Card> list = session.createCriteria(Card.class)
+				.add(Restrictions.eq("cardNo", cardNo)).list();
+
+		if (list.size() > 0) {
+			check = true;
+		}
+		
+		session.close();
+		
+		return check;
+	}
+	
 }

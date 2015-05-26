@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="auth/login">Go home</a>
+<a href="card/insert">Go home</a>
 </body>
 </html>
