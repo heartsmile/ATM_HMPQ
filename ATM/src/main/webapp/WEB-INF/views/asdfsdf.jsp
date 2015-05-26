@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="auth/login">Go home</a>
+<h1>Login</h1>
+
 </body>
 </html>

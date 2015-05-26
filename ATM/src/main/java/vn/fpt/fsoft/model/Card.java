@@ -2,21 +2,24 @@ package vn.fpt.fsoft.model;
 
 import java.util.Date;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Card {
 
 	private char cardNo;
-	private char PIN;
+	private String PIN;
 	private Date startDate;
 	private Date expriedDate;
 	private int account;
 	public String status;
 	private int attempt;
 
-	public char getPIN() {
+	public String getPIN() {
 		return PIN;
 	}
 
-	public void setPIN(char pIN) {
+	public void setPIN(String pIN) {
 		PIN = pIN;
 	}
 

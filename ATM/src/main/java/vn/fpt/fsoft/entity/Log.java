@@ -19,16 +19,18 @@ public class Log {
 	@JoinColumn(name = "logTypeID")
 	private LogType logTypeID;
 	@ManyToOne
-	@JoinColumn(name = "atmid")
-	private ATM atmid;
+	@JoinColumn(name = "atmid", insertable = false, updatable = false)
+	private ATM atm;
 	@ManyToOne
-	@JoinColumn(name = "cardNo")
+	@JoinColumn(name = "cardNo", insertable = false, updatable = false)
 	@Length(max = 16)
-	private Card cardNo;
+	private Card card;
 	private Date logDate;
 	private Float amount;
 	@Length(max = 100)
 	private String details;
+	private Integer atmid;
+	private String cardNo;
 
 	public Integer getLogID() {
 		return logID;
@@ -46,19 +48,35 @@ public class Log {
 		this.logTypeID = logTypeID;
 	}
 
-	public ATM getAtmid() {
+	public ATM getAtm() {
+		return atm;
+	}
+
+	public void setAtm(ATM atm) {
+		this.atm = atm;
+	}
+
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
+	}
+
+	public Integer getAtmid() {
 		return atmid;
 	}
 
-	public void setAtmid(ATM atmid) {
+	public void setAtmid(Integer atmid) {
 		this.atmid = atmid;
 	}
 
-	public Card getCardNo() {
+	public String getCardNo() {
 		return cardNo;
 	}
 
-	public void setCardNo(Card cardNo) {
+	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
 	}
 

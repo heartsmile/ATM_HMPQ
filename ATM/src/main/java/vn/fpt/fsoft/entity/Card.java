@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,8 +22,8 @@ public class Card implements Serializable{
 	@Length(max = 30)
 	private String status;
 	@ManyToOne
-	@JoinColumn(name = "accountID")
-	private Account accountID;
+	@JoinColumn(name = "accountID",insertable = false, updatable = false)
+	private Account account;
 	@Length(max = 6)
 	private String PIN;
 	private Date startDate;
@@ -30,6 +31,7 @@ public class Card implements Serializable{
 	private Integer attempt;
 	@OneToMany(mappedBy ="cardNo")
 	private Set<Log> logs;
+	private Integer accountID;
 
 	public String getCardNo() {
 		return cardNo;
@@ -79,12 +81,12 @@ public class Card implements Serializable{
 		this.attempt = attempt;
 	}
 
-	public Account getAccountID() {
-		return accountID;
+	public Account getAccount() {
+		return account;
 	}
 
-	public void setAccountID(Account accountID) {
-		this.accountID = accountID;
+	public void setAccountID(Account account) {
+		this.account = account;
 	}
 
 	public Set<Log> getLogs() {
@@ -94,6 +96,20 @@ public class Card implements Serializable{
 	public void setLogs(Set<Log> logs) {
 		this.logs = logs;
 	}
+
+	public Integer getAccountID() {
+		return accountID;
+	}
+
+	public void setAccountID(Integer accountID) {
+		this.accountID = accountID;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+	
+	
 
 
 	

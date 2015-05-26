@@ -25,14 +25,16 @@ public class Account implements Serializable {
 	@JoinColumn(name = "custID")
 	private Customer custID;
 	@ManyToOne
-	@JoinColumn(name = "oDID")
-	private OverDraft oDID;
+	@JoinColumn(name = "oDID",insertable = false, updatable = false)
+	private OverDraft overDraft;
 	@ManyToOne
-	@JoinColumn(name = "wDID")
-	private WithDraw wDID;
+	@JoinColumn(name = "wDID",insertable = false, updatable = false)
+	private WithDraw withDraw;
 	@Length(max = 50)
 	private String accountNo;
 	private Float balance;
+	private Integer oDID;
+	private Integer wDID;
 
 	@OneToMany(mappedBy = "accountID")
 	private Set<Card> cards;
@@ -69,19 +71,35 @@ public class Account implements Serializable {
 		this.custID = custID;
 	}
 
-	public OverDraft getoDID() {
+	public OverDraft getOverDraft() {
+		return overDraft;
+	}
+
+	public void setOverDraft(OverDraft overDraft) {
+		this.overDraft = overDraft;
+	}
+
+	public WithDraw getWithDraw() {
+		return withDraw;
+	}
+
+	public void setWithDraw(WithDraw withDraw) {
+		this.withDraw = withDraw;
+	}
+
+	public Integer getoDID() {
 		return oDID;
 	}
 
-	public void setoDID(OverDraft oDID) {
+	public void setoDID(Integer oDID) {
 		this.oDID = oDID;
 	}
 
-	public WithDraw getwDID() {
+	public Integer getwDID() {
 		return wDID;
 	}
 
-	public void setwDID(WithDraw wDID) {
+	public void setwDID(Integer wDID) {
 		this.wDID = wDID;
 	}
 
