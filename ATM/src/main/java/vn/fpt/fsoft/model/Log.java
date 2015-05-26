@@ -23,7 +23,7 @@ public class Log {
 	@JoinColumn(name = "cardNo")
 	private Card cardNo;
 	private Date logDate;
-	private BigDecimal amount;
+	private Float amount;
 	private String details;
 
 	public Integer getLogID() {
@@ -66,11 +66,11 @@ public class Log {
 		this.logDate = logDate;
 	}
 
-	public BigDecimal getAmount() {
+	public Float getAmount() {
 		return amount;
 	}
 
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(Float amount) {
 		this.amount = amount;
 	}
 

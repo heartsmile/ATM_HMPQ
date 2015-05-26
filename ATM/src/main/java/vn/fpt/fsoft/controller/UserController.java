@@ -12,6 +12,6 @@ public class UserController {
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String authentication(@RequestParam(value = "auth") String auth,@RequestParam(value = "pin") String pin){
 		
-		
+		return "home";
 	}
 }

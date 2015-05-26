@@ -15,7 +15,7 @@ public class WithDraw {
 
 	@Id
 	private Integer wDID;
-	private BigDecimal value;
+	private Float value;
 	@OneToMany(mappedBy = "wDID")
 	private Set<Account> accounts;
 	
@@ -27,11 +27,11 @@ public class WithDraw {
 		this.wDID = wDID;
 	}
 
-	public BigDecimal getValue() {
+	public Float getValue() {
 		return value;
 	}
 
-	public void setValue(BigDecimal value) {
+	public void setValue(Float value) {
 		this.value = value;
 	}
 

@@ -29,8 +29,8 @@ public class Account implements Serializable {
 	@JoinColumn(name = "wDID")
 	private WithDraw wDID;
 	private String accountNo;
-	private Integer balance;
-	
+	private Float balance;
+
 	@OneToMany(mappedBy = "accountID")
 	private Set<Card> cards;
 
@@ -50,11 +50,11 @@ public class Account implements Serializable {
 		this.accountNo = accountNo;
 	}
 
-	public Integer getBalance() {
+	public Float getBalance() {
 		return balance;
 	}
 
-	public void setBalance(Integer balance) {
+	public void setBalance(Float balance) {
 		this.balance = balance;
 	}
 
@@ -89,7 +89,5 @@ public class Account implements Serializable {
 	public void setCards(Set<Card> cards) {
 		this.cards = cards;
 	}
-	
-	
 
 }

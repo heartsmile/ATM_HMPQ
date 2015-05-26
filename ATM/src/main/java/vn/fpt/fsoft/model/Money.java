@@ -12,7 +12,7 @@ public class Money {
 
 	@Id
 	private Integer moneyID;
-	private BigDecimal moneyValue;
+	private Float moneyValue;
 	private String address;
 	@OneToMany(mappedBy = "moneyID")
 	private Set<Stock> stocks;
@@ -24,12 +24,12 @@ public class Money {
 	public void setMoneyID(Integer moneyID) {
 		this.moneyID = moneyID;
 	}
-
-	public BigDecimal getMoneyValue() {
+	
+	public Float getMoneyValue() {
 		return moneyValue;
 	}
 
-	public void setMoneyValue(BigDecimal moneyValue) {
+	public void setMoneyValue(Float moneyValue) {
 		this.moneyValue = moneyValue;
 	}
 
