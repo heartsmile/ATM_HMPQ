@@ -26,12 +26,12 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/loginprocess", method = RequestMethod.POST)
-	public String auth(@RequestParam(value = "account") String accountID,
+	public String auth(@RequestParam(value = "cardid") String cardID,
 			@RequestParam(value = "pin") String pin, ModelMap map) {
 		String forward = "asdfsdf";
 		Card card = new Card();
 
-		card.setAccount(Integer.parseInt(accountID));
+		card.setCardNo(cardID);
 		card.setPIN(pin);
 
 		if (login_cointer > 0) {

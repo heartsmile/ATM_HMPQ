@@ -219,7 +219,7 @@
 							<table>
 								<tr>
 									<td>Account ID </td>
-									<td><input type="text" name="account"></td>
+									<td><input type="text" name="cardid"></td>
 								</tr>
 								<tr>
 									<td>PIN </td>

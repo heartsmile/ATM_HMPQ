@@ -17,13 +17,13 @@ public class UserDao {
 	private SessionFactory sessionFactory;
 
 	@SuppressWarnings("unchecked")
-	public boolean checkPIN(int account, String PIN) {
+	public boolean checkPIN(String cardNo, String PIN) {
 		boolean check = false;
 		Session session = sessionFactory.getCurrentSession();
 
 		session.beginTransaction();
 		List<Card> list = session.createCriteria(Card.class)
-				.add(Restrictions.eq("accountID", account))
+				.add(Restrictions.eq("cardNo", cardNo))
 				.add(Restrictions.eq("PIN", PIN)).list();
 
 		if (list.size() > 0) {

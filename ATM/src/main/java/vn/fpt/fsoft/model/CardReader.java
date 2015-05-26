@@ -28,7 +28,7 @@ public class CardReader {
 
 	public boolean validatePIN(Card card) {
 		
-		return userDao.checkPIN(card.getAccount(), card.getPIN());
+		return userDao.checkPIN(card.getCardNo(), card.getPIN());
 	}
 
 	public void swallowCard() {

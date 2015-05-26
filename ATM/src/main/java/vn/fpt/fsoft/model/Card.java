@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class Card {
 
-	private char cardNo;
+	private String cardNo;
 	private String PIN;
 	private Date startDate;
 	private Date expriedDate;
@@ -34,13 +34,21 @@ public class Card {
 	public int getAttempt() {
 		return attempt;
 	}
-	
-	public void block(){
-		
+
+	public void block() {
+
 	}
-	
-	public void unBlock(){
-		
+
+	public void unBlock() {
+
+	}
+
+	public String getCardNo() {
+		return cardNo;
+	}
+
+	public void setCardNo(String cardNo) {
+		this.cardNo = cardNo;
 	}
 
 }
