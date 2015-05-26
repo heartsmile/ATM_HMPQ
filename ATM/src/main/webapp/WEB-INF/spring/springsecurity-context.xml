@@ -6,16 +6,20 @@
 	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
 	<http auto-config="true">
-		<intercept-url pattern="/home**" access="ROLE_USER" />
+		<intercept-url pattern="/home*" access="ROLE_USER" />
 		<form-login login-page="/login"
-			default-target-url="/home" authentication-failure-url="/login" />
+			authentication-failure-url="/loginerror" />
 	</http>
 
 	<authentication-manager>
 		<authentication-provider>
-			<user-service>
-				<user name="hai" password="123456" authorities="ROLE_USER" />
-			</user-service>
+			<!-- <user-service> -->
+			<!-- <user name="hai" password="123456" authorities="ROLE_USER" /> -->
+			<!-- </user-service> -->
+
+			<jdbc-user-service data-source-ref="dataSource"
+				authorities-by-username-query="SELECT username, 'ROLE_USER' FROM authorities WHERE username = ?"
+				users-by-username-query="SELECT username, password, enabled FROM users WHERE username = ?" />
 		</authentication-provider>
 	</authentication-manager>
 
