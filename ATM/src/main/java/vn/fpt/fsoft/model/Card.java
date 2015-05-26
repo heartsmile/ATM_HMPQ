@@ -4,7 +4,11 @@ import java.util.Date;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import vn.fpt.fsoft.dao.CardDao;
+
+@Component
 public class Card {
 
 	private String cardNo;
@@ -14,6 +18,9 @@ public class Card {
 	private int account;
 	public String status;
 	private int attempt;
+	
+	@Autowired
+	private CardDao cardDao;
 	
 	public String getPIN() {
 		return PIN;
@@ -32,8 +39,8 @@ public class Card {
 		return attempt;
 	}
 
-	public void block() {
-
+	public void block(String cardNo) {
+		cardDao.block(cardNo);
 	}
 
 	public void unBlock() {

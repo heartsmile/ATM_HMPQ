@@ -19,6 +19,8 @@ public class UserController {
 
 	@Autowired
 	private CardReader cardReader;
+	@Autowired
+	private Card card;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
@@ -29,13 +31,13 @@ public class UserController {
 	@RequestMapping(value = "/loginprocess", method = RequestMethod.POST)
 	public String auth(@RequestParam(value = "pin") String pin, ModelMap map) {
 		String forward = "asdfsdf";
-		Card card = (Card) map.get("card");
-		int attempt = card.getAttempt();
+		Card temp = (Card) map.get("card");
 
-		card.setCardNo(card.getCardNo());
+		card.setCardNo(temp.getCardNo());
 		card.setPIN(pin);
 		cardReader.setCard(card);
 		
+		int attempt = card.getAttempt();
 
 		if (attempt <= 3) {
 			
@@ -44,7 +46,7 @@ public class UserController {
 			} else {
 				
 				if(attempt == 3){
-					card.block();
+					card.block(card.getCardNo());
 					cardReader.swallowCard();
 					map.put("attempt", attempt);
 					map.put("message", UserConstant.LOGIN_LOCK);
@@ -55,6 +57,8 @@ public class UserController {
 				forward = "login";
 			}
 		} 
+		
+		map.addAttribute("card", card);
 
 		return forward;
 	}

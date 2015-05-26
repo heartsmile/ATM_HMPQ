@@ -3,13 +3,13 @@ package vn.fpt.fsoft.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import vn.fpt.fsoft.dao.UserDao;
+import vn.fpt.fsoft.dao.CardDao;
 
 @Component
 public class CardReader {
 
 	@Autowired
-	private UserDao userDao;
+	private CardDao userDao;
 	private Card card;
 	
 	public CardReader(){
