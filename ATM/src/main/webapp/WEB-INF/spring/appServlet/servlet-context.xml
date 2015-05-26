@@ -24,6 +24,6 @@
 	<annotation-driven />
 	<context:annotation-config />
 	<context:component-scan
-		base-package="vn.fpt.fsoft.controller,vn.fpt.fsoft.dao,vn.fpt.fsoft.model" />
+		base-package="vn.fpt.fsoft" />
 
 </beans:beans>
