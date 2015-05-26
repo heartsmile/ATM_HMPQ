@@ -18,9 +18,13 @@ public class Customer implements Serializable{
 
 	@Id
 	private Integer custID;
+	@Length(max = 100)
 	private String name;
+	@Length(max = 50)
 	private String phone;
+	@Length(max = 100)
 	private String email;
+	@Length(max = 200)
 	private String addr;
 	@OneToMany(mappedBy = "custID")
 	private Set<Account> accounts;

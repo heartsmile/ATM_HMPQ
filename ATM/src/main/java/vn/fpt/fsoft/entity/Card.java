@@ -10,15 +10,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.validator.constraints.Length;
+
 @Entity
 public class Card implements Serializable{
 
 	@Id
+	@Length(max = 16)
 	private String cardNo;
+	@Length(max = 30)
 	private String status;
 	@ManyToOne
 	@JoinColumn(name = "accountID")
 	private Account accountID;
+	@Length(max = 6)
 	private String PIN;
 	private Date startDate;
 	private Date expiredDate;

@@ -14,6 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.validator.constraints.Length;
+
 @Entity
 public class Account implements Serializable {
 
@@ -28,6 +30,7 @@ public class Account implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "wDID")
 	private WithDraw wDID;
+	@Length(max = 50)
 	private String accountNo;
 	private Float balance;
 

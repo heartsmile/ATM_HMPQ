@@ -7,12 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.validator.constraints.Length;
+
 @Entity
 public class Money {
 
 	@Id
 	private Integer moneyID;
 	private Float moneyValue;
+	@Length(max = 100)
 	private String address;
 	@OneToMany(mappedBy = "moneyID")
 	private Set<Stock> stocks;

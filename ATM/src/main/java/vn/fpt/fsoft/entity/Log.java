@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.Length;
+
 @Entity
 public class Log {
 
@@ -21,9 +23,11 @@ public class Log {
 	private ATM atmid;
 	@ManyToOne
 	@JoinColumn(name = "cardNo")
+	@Length(max = 16)
 	private Card cardNo;
 	private Date logDate;
 	private Float amount;
+	@Length(max = 100)
 	private String details;
 
 	public Integer getLogID() {
