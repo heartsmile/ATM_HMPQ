@@ -1,5 +1,7 @@
 package vn.fpt.fsoft.constant;
 
-public class UserConstant {
+public interface UserConstant {
 
+	String FIRST_LOGIN = "1111";
+	
 }
