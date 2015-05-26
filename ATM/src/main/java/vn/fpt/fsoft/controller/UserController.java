@@ -6,14 +6,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/auth")
 public class UserController {
 
-	@RequestMapping(value = "/login",method = RequestMethod.POST)
-	public String login(@RequestParam(value = "j_username") String username,
-			@RequestParam(value = "j_password") String password) {
-		if (username.equals("admin"))
-			System.out.println("admin just login!");
-		return "home";
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String authentication(@RequestParam(value = "auth") String auth,@RequestParam(value = "pin") String pin){
+		
+		
 	}
 }
