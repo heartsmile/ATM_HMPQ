@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import vn.fpt.fsoft.model.Card;
+
 /**
  * @author QuanTA5
  *
  */
 @Controller
-@SessionAttributes("card")
+@SessionAttributes({ "card" })
 public class WithdrawalController {
 
 	@RequestMapping("/withdraw")
@@ -27,33 +29,52 @@ public class WithdrawalController {
 	}
 
 	@RequestMapping("/recommendedValue")
-	public String recommendedValue(@RequestParam(value = "moneyValue") String money,
-			ModelMap modelMap) {
+	public String recommendedValue(
+			@RequestParam(value = "moneyValue") String money, ModelMap modelMap) {
 
-		modelMap.get("card");
-		
-		System.out.println("" + money);
-		
+		String forward = "Welcome";
+
+		Card card = (Card) modelMap.get("card");
+
+		System.out.println("" + card.getAccount());
+
 		// get value of money from request
-
+		System.out.println("" + money);
 		// check balance of account
+		// boolean isValidBalance = checkBalance(accountNo);
 
 		if (true) {
 			// if had enough money,
+			
 			// write log
+			
 			// dispense money
+<<<<<<< .mine
+			
+			// eject card
+=======
 			//xoa toan bo session
 			modelMap.clear();
+>>>>>>> .r64
+			
 			// show "get receipt?" screen
-		} else {
+			forward = "AskReceipt";
+		}// else {
 			// show error screen
-		}
-		return "Welcome";
+		//}
+		return forward;
+	}
+
+	@RequestMapping("/otherValue")
+	public String otherValue() {
+		
+		return "InputOtherValue";
 	}
 
 	@RequestMapping("/submitOtherValue")
 	public String submitOtherValue() {
-
+		//validate input amount
+		
 		return "OtherValue";
 	}
 }
