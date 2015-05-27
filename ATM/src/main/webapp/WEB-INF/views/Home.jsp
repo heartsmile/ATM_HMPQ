@@ -3,20 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript">
-	function keyType(id) {
-		var el = document.getElementById("pass");
-		var num = id.value;
-		var oldValue = el.value;
-		el.value = oldValue + num + "";
-	}
-	function clearText() {
-		var el = document.getElementById("pass");
-		var oldValue = el.value + "";
-		el.value = oldValue.substring(0, oldValue.length - 1);
-	}
-</script>
-<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"
@@ -26,29 +13,45 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <title>Home</title>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$('#card1').click(function() {
+			$('#cardid').val('123465');
+			return false;
+		});
+
+		$('#card2').click(function() {
+			$('#cardid').val('1234');
+			return false;
+		});
+
+	});
+</script>
 </head>
 <body>
 	<div id="main">
 		<div id="center" class="panel panel-default">
 			<div id="left">
 				<div id="leftContent">
-					<button type="button" class="functionButton" onclick="window.location.href='withdraw'">
-						<img src="resources/imgs/arrow.png">
+					<button type="button" class="functionButton"
+						onclick="window.location.href='withdraw'">
+						<img src="${pageContext.request.contextPath}/resources/imgs/arrow.png">
 					</button>
 					<button type="button" class="functionButton">
-						<img src="resources/imgs/arrow.png">
+						<img src="${pageContext.request.contextPath}/resources/imgs/arrow.png">
 					</button>
 					<button type="button" class="functionButton">
-						<img src="resources/imgs/arrow.png">
+						<img src="${pageContext.request.contextPath}/resources/imgs/arrow.png">
 					</button>
 
 				</div>
 			</div>
-<!-- Begin Screen -->
+			<!-- Begin Screen -->
 			<div id="screen">
 				<div id=title>
 					<div id=logo>
-						<img src="resources/imgs/logo.jpg">
+						<img src="${pageContext.request.contextPath}/resources/imgs/logo.jpg">
 					</div>
 					<div id=message>
 						<p>TP Bank ATM</p>
@@ -58,20 +61,23 @@
 				<div id=content>
 					<div id=functionCenter>
 						<label>WELCOME TO TP BANK</label>
+						
+						<h2>${message }</h2>
 					</div>
 				</div>
 			</div>
-<!-- End Screen -->
+			<!-- End Screen -->
 			<div id="right">
 				<div id="rightContent">
+
 					<button type="button" class="functionButton">
-						<img src="resources/imgs/arrow2.png">
+						<img src="${pageContext.request.contextPath}/resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton">
-						<img src="resources/imgs/arrow2.png">
+						<img src="${pageContext.request.contextPath}/resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton">
-						<img src="resources/imgs/arrow2.png">
+						<img src="${pageContext.request.contextPath}/resources/imgs/arrow2.png">
 					</button>
 				</div>
 			</div>
@@ -93,8 +99,8 @@
 								<button type="button" class="btn btn-primary" value="3"
 									onclick="keyType(this)">3</button>
 							</td>
-							<td class="keyFuntion" colspan="2"><button
-									style="width: 80px;" type="button" class="btn btn-success">Enter</button></td>
+							<td class="keyFuntion" colspan="2">
+							<button style="width: 80px;" type="button" class="btn btn-success">Enter</button></td>
 						</tr>
 						<tr>
 							<td>
@@ -147,26 +153,29 @@
 				<div id="cardBoard">
 					<div id="cardPick">
 						<div id="pickPanel" class="panel panel-default">
-							<button type="button" class="btn btn-primary">
-								<img alt="" src="resources/imgs/card.png">Card 1
+							<button id="card1" type="button" class="btn btn-primary">
+								<img alt="" src="${pageContext.request.contextPath}/resources/imgs/card.png">Card 1
 							</button>
-							<button type="button" class="btn btn-primary">
-								<img alt="" src="resources/imgs/card.png">Card 2
+							<button id="card2" type="button" class="btn btn-primary">
+								<img alt="" src="${pageContext.request.contextPath}/resources/imgs/card.png">Card 2
 							</button>
 							<button type="button" class="btn btn-success">
-								<img src="resources/imgs/pick.png">Pick
+								<img src="${pageContext.request.contextPath}/resources/imgs/pick.png">Pick
 							</button>
 
 						</div>
 					</div>
 					<div id="cardInsert">
-						<div id="insertPanel" class="panel panel-default">
-							<label><img alt="" src="resources/imgs/cardIn.png"></label>
-							<button type="button" class="btn btn-warning">
-								<img alt="" src="resources/imgs/insert.png"> Insert card
-							</button>
+						<form action="${pageContext.request.contextPath}/card/insertprocess" method="post">
+							<input type="hidden" name="cardid" id="cardid">
+							<div id="insertPanel" class="panel panel-default">
+								<label><img alt="" src="${pageContext.request.contextPath}/resources/imgs/cardIn.png"></label>
+								<button id="insert" type="submit" class="btn btn-warning">
+									<img alt="" src="${pageContext.request.contextPath}/resources/imgs/insert.png"> Insert card
+								</button>
 
-						</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

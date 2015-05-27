@@ -33,7 +33,7 @@ public class CardController {
 
 	@RequestMapping(value = "/insertprocess", method = RequestMethod.POST)
 	public String readCard(@RequestParam(value = "cardid") String cardNo,ModelMap map) {
-		String forward = "insertcard";
+		String forward = "Home";
 		card.setCardNo(cardNo);
 		cardReader.setCard(card);
 

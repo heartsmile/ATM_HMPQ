@@ -197,6 +197,8 @@
 			} else {
 				$('#pin').val(pinCode + id);
 			}
+			
+			$('#pinhd').val($('#pin').val());
 			return false;
 		});
 
@@ -222,7 +224,8 @@
 			<div id="screen">
 				<div id=title>
 					<div id=logo>
-						<img src="${pageContext.request.contextPath}/resources/imgs/logo.jpg">
+						<img
+							src="${pageContext.request.contextPath}/resources/imgs/logo.jpg">
 					</div>
 					<div id=message>
 						<p>TP Bank ATM</p>
@@ -233,17 +236,12 @@
 					<center>
 						<h1>Enter your PIN</h1>
 						<c:if test="${empty attempt or attempt < 3}">
-							<form action="loginprocess" method="post">
-								<input type="hidden" name="cardid" value="${card.cardNo }">
 								<table>
 									<tr>
 										<td>PIN</td>
 										<td><input type="text" name="pin" id="pin"></td>
 									</tr>
 								</table>
-								<br> Then press enter button <input type="submit"
-									value="OK">
-							</form>
 						</c:if>
 						<p>${message }</p>
 					</center>
@@ -271,8 +269,13 @@
 						<td>
 							<button type="button" class="btn btn-primary" id="3">3</button>
 						</td>
-						<td class="keyFuntion" colspan="2"><button
-								style="width: 80px;" type="button" class="btn btn-success">Enter</button></td>
+						<td class="keyFuntion" colspan="2">
+							<form action="loginprocess" method="post">
+							<input type="hidden" name="cardid" value="${card.cardNo }">
+							<input type="hidden" name="pin" value="${card.cardNo }" id="pinhd">
+								<input type="submit" style="width: 80px;" class="btn btn-success" value="Enter">
+							</form>
+						</td>
 					</tr>
 					<tr>
 						<td>
