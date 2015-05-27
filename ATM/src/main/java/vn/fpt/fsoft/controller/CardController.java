@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import vn.fpt.fsoft.constant.Constant;
 import vn.fpt.fsoft.model.Card;
 import vn.fpt.fsoft.model.CardReader;
+import vn.fpt.fsoft.service.CardService;
+import vn.fpt.fsoft.service.UserService;
 
 @Controller
 @RequestMapping(value = "/card")
@@ -18,6 +21,8 @@ public class CardController {
 
 	@Autowired
 	private CardReader cardReader;
+	@Autowired
+	private CardService cardService;
 
 	@RequestMapping(value = "/insert")
 	public String home() {
@@ -25,26 +30,25 @@ public class CardController {
 	}
 
 	@RequestMapping(value = "/insertprocess", method = RequestMethod.POST)
-	public String readCard(@RequestParam(value = "cardid") String cardNo,
-			ModelMap map) {
+	public String readCard(@RequestParam(value = "cardid") String cardNo,ModelMap map) {
 		String forward = "insertcard";
 		Card card = new Card();
 		card.setCardNo(cardNo);
 		cardReader.setCard(card);
 
-		if (cardReader.acceptCard()) {
+		if (cardService.acceptCard(cardReader)) {
 			
-			if (cardReader.validateCard()) {
+			if (cardService.validateCard(cardReader)) {
 				map.addAttribute("card", card);
-				forward = "redirect:/auth/login";
+				forward = Constant.REDIRECT_LOGIN_VALIDATECARD;
 			} else {
 				
-				map.addAttribute("message","<html>Card is invalid<br>Eject card...</html>");
+				map.addAttribute("message",Constant.CARD_INVALID);
 			}
 			
 		} else {
 			
-			map.addAttribute("message","<html>System does not recognize ATM card<br>Eject card...</html>");
+			map.addAttribute("message",Constant.NOT_RECOGNIZE);
 		}
 
 		return forward;
