@@ -39,7 +39,8 @@ public class Card {
 		return attempt;
 	}
 
-	public void block(String cardNo) {
+	public void block() {
+		attempt = 0;
 		cardDao.block(cardNo);
 	}
 

@@ -46,11 +46,12 @@ public class CardReader {
 
 	public void swallowCard() {
 
+		//DO SOMETHING
 	}
 
 	public void checkAttempt() {
 		
-		//do something
+		//DO SOMETHING
 	}
 	
 	public void setCard(Card card){
