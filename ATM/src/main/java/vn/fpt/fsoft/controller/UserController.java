@@ -34,7 +34,6 @@ public class UserController {
 		String forward = "redirect:/home";
 		Card card = (Card) map.get("card");
 		int attempt = card.getAttempt();
-		
 		card.setCardNo(card.getCardNo());
 		card.setPIN(pin);
 		cardReader.setCard(card);

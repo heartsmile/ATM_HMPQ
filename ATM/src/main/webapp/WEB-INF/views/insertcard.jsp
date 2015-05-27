@@ -200,7 +200,7 @@
 			<div id="screen">
 				<div id=title>
 					<div id=logo>
-						<img src="resources/logo.jpg">
+						<img src="${pageContext.request.contextPath}/resources/imgs/logo.jpg">
 					</div>
 					<div id=message>
 						<p>TP Bank ATM</p>
@@ -208,14 +208,6 @@
 					</div>
 				</div>
 				<div id=content>
-					<!-- 					<div id=functionLeft> -->
-					<!-- 						<label class="labelLeft">Manh</label> <label class="labelLeft">Manh</label> -->
-					<!-- 						<label class="labelLeft">Manh</label> -->
-					<!-- 					</div> -->
-					<!-- 					<div id=functionRight> -->
-					<!-- 						<label class="labelRight">Manh</label> <label class="labelRight">Manh</label> -->
-					<!-- 						<label class="labelRight">Manh</label> -->
-					<!-- 					</div> -->
 					<center>
 						<h1>Insert your card</h1>
 						<form action="insertprocess" method="post">

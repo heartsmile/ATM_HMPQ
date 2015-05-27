@@ -2,6 +2,7 @@ package vn.fpt.fsoft.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -60,5 +61,21 @@ public class CardDao {
 		session.beginTransaction();
 		session.createQuery(sql).setString("cardno", cardNo).executeUpdate();
 		session.getTransaction().commit();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public int getAccountID(String cardNo){
+		int accountID = 0;
+		Session session = sessionFactory.getCurrentSession();
+		
+		session.beginTransaction();
+		List<Card> list = session.createCriteria(Card.class).add(Restrictions.eq("cardNo", cardNo)).list();
+		session.close();
+		
+		for (Card card : list) {
+			accountID = card.getAccountID();
+		}
+		
+		return accountID;
 	}
 }

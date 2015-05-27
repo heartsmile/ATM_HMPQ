@@ -30,10 +30,6 @@ public class Card {
 		PIN = pIN;
 	}
 
-	public int getAccount() {
-		return account;
-	}
-
 	public int getAttempt() {
 		attempt +=1;
 		return attempt;
@@ -55,5 +51,14 @@ public class Card {
 	public void setCardNo(String cardNo) {
 		this.cardNo = cardNo;
 	}
+	
+	public int getAccount(){
+		return cardDao.getAccountID(cardNo);
+	}
 
+	public void setAccount(int account) {
+		this.account = account;
+	}
+
+	
 }
