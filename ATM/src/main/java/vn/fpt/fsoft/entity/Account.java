@@ -22,8 +22,8 @@ public class Account implements Serializable {
 	@Id
 	private Integer accountID;
 	@ManyToOne
-	@JoinColumn(name = "custID")
-	private Customer custID;
+	@JoinColumn(name = "custID",insertable = false, updatable = false)
+	private Customer cust;
 	@ManyToOne
 	@JoinColumn(name = "oDID",insertable = false, updatable = false)
 	private OverDraft overDraft;
@@ -35,6 +35,7 @@ public class Account implements Serializable {
 	private Float balance;
 	private Integer oDID;
 	private Integer wDID;
+	private Integer custID;
 
 	@OneToMany(mappedBy = "accountID")
 	private Set<Card> cards;
@@ -63,12 +64,12 @@ public class Account implements Serializable {
 		this.balance = balance;
 	}
 
-	public Customer getCustID() {
-		return custID;
+	public Customer getCust() {
+		return cust;
 	}
 
-	public void setCustID(Customer custID) {
-		this.custID = custID;
+	public void setCust(Customer cust) {
+		this.cust = cust;
 	}
 
 	public OverDraft getOverDraft() {
@@ -110,5 +111,15 @@ public class Account implements Serializable {
 	public void setCards(Set<Card> cards) {
 		this.cards = cards;
 	}
+
+	public Integer getCustID() {
+		return custID;
+	}
+
+	public void setCustID(Integer custID) {
+		this.custID = custID;
+	}
+	
+	
 
 }
