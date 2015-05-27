@@ -36,7 +36,7 @@ public class WithdrawalController {
 
 		Card card = (Card) modelMap.get("card");
 
-		System.out.println("" + card.getAccount());
+		//System.out.println("" + card.getAccount());
 
 		// get value of money from request
 		System.out.println("" + money);
@@ -49,13 +49,10 @@ public class WithdrawalController {
 			// write log
 			
 			// dispense money
-<<<<<<< .mine
 			
 			// eject card
-=======
-			//xoa toan bo session
 			modelMap.clear();
->>>>>>> .r64
+
 			
 			// show "get receipt?" screen
 			forward = "AskReceipt";
