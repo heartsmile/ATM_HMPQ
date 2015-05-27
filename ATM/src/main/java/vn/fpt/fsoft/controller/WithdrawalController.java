@@ -42,7 +42,8 @@ public class WithdrawalController {
 			// if had enough money,
 			// write log
 			// dispense money
-			// eject card
+			//xoa toan bo session
+			modelMap.clear();
 			// show "get receipt?" screen
 		} else {
 			// show error screen
