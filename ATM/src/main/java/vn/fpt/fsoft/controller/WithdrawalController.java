@@ -27,10 +27,13 @@ public class WithdrawalController {
 	}
 
 	@RequestMapping("/recommendedValue")
-	public String recommendedValue(@RequestParam(value = "") String money,
+	public String recommendedValue(@RequestParam(value = "moneyValue") String money,
 			ModelMap modelMap) {
 
 		modelMap.get("card");
+		
+		System.out.println("" + money);
+		
 		// get value of money from request
 
 		// check balance of account
@@ -44,7 +47,7 @@ public class WithdrawalController {
 		} else {
 			// show error screen
 		}
-		return "";
+		return "Welcome";
 	}
 
 	@RequestMapping("/submitOtherValue")

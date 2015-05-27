@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,9 +33,12 @@
 		<div id="center" class="panel panel-default">
 			<div id="left">
 				<div id="leftContent">
-					<button type="button" class="functionButton">
-						<img src="resources/imgs/arrow.png">
-					</button>
+					<form method="post" action="recommendedValue">
+						<button type="submit" class="functionButton">
+							<img src="resources/imgs/arrow.png">
+						</button>
+						<input type="hidden" value="500000" name="moneyValue">
+					</form>
 					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow.png">
 					</button>
@@ -55,8 +59,8 @@
 					</div>
 				</div>
 				<div id=content>
-					<div id=functionLeft>
-						<label class="labelLeft">500.000</label> 
+					<div id=functionLeft> 
+						<label class="labelLeft">500.000</label>
 						<label class="labelLeft">2.000.000</label> 
 						<label class="labelLeft">3.000.000</label>
 					</div>

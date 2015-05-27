@@ -32,7 +32,7 @@
 		<div id="center" class="panel panel-default">
 			<div id="left">
 				<div id="leftContent">
-					<button type="button" class="functionButton">
+					<button type="button" class="functionButton" onclick="window.location.href='withdraw'">
 						<img src="resources/imgs/arrow.png">
 					</button>
 					<button type="button" class="functionButton">
@@ -57,7 +57,7 @@
 				</div>
 				<div id=content>
 					<div id=functionLeft>
-						<a href="withdraw"><label class="labelLeft">Withdraw</label></a> 
+						<label class="labelLeft">Withdraw</label> 
 						<label class="labelLeft">Check Balance</label> 
 						<label class="labelLeft">Transfer</label>
 					</div>
