@@ -17,7 +17,7 @@
 	$(document).ready(function() {
 
 		$('#card1').click(function() {
-			$('#cardid').val('123465');
+			$('#cardid').val('1234567');
 			return false;
 		});
 

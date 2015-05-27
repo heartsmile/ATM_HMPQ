@@ -20,10 +20,10 @@ public class AccountDao {
 
 	@SuppressWarnings("unchecked")
 	public vn.fpt.fsoft.model.Account getAccount(Card card) {
-		String accountNO = card.getAccountNo();
+		String accountNo = card.getAccountNo();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		List<Account> list = sessionFactory.getCurrentSession().createCriteria(Account.class).add(Restrictions.eq("accountNo",accountNO )).list();
+		List<Account> list = sessionFactory.getCurrentSession().createCriteria(Account.class).add(Restrictions.eq("accountNo",accountNo )).list();
 		session.close();
 		
 		for (Account ac : list) {

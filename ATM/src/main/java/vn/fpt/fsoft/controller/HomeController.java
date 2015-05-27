@@ -16,11 +16,7 @@ public class HomeController {
 	private Card card;
 	
 	@RequestMapping(value = "/welcome")
-	public String welcome(ModelMap modelMap){
-		card.setCardNo("123");
-		
-		//card.setPIN("3132");
-		
+	public String welcome(ModelMap modelMap){		
 		modelMap.put("card", card);
 		
 		return "Welcome";
@@ -28,9 +24,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/home")
 	public String home(ModelMap modelMap){
-		card.setCardNo("123");
-		
-		//card.setPIN("3132");
 		
 		modelMap.put("card", card);
 		

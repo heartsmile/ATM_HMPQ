@@ -5,17 +5,28 @@
 <head>
 <script type="text/javascript">
 	function keyType(id) {
-		var el = document.getElementById("pass");
+		var el = document.getElementById("numOfOtherMoney");
 		var num = id.value;
 		var oldValue = el.value;
 		el.value = oldValue + num + "";
 	}
 	function clearText() {
-		var el = document.getElementById("pass");
+		var el = document.getElementById("numOfOtherMoney");
 		var oldValue = el.value + "";
 		el.value = oldValue.substring(0, oldValue.length - 1);
 	}
 </script>
+
+<style type="text/css">
+#screen #content #functionRight {
+	width: 40%;
+	height: 100%;
+	float: right;
+	clear: none;
+	margin-top: -25px;
+}
+</style>
+
 <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -25,7 +36,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Check Balance</title>
 </head>
 <body>
 	<div id="main">
@@ -41,7 +52,6 @@
 					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow.png">
 					</button>
-
 				</div>
 			</div>
 			<!-- Begin Screen -->
@@ -54,16 +64,18 @@
 						<p>TP Bank ATM</p>
 						<p id="advise">Please select a transaction</p>
 					</div>
-
-					<label>Your account have: ${balance} VND</label> <br>
-
-					<div>
-						<p>Do you want to print receipt?</p>
-						<button>OK</button>
-						<button>Cancel</button>
+				</div>
+				<div id=content>
+					<div id=functionCenter class="input-group">
+						<label class="labelCenter">Your account have: ${balance} VND</label>
+						<br>
+						<label class="labelCenter">Do you want to print receipt?</label>
+					</div>
+					<div id=functionRight>
+						<label class="labelRight">OK</label>
+						<label class="labelRight">Cancel</label>
 					</div>
 				</div>
-
 			</div>
 			<!-- End Screen -->
 			<div id="right">
@@ -72,11 +84,11 @@
 						<img src="resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton"
-						onclick="window.location.href='home'">
+						onclick="window.location.href='welcome'">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton"
-						onclick="window.location.href='home'">
+						onclick="window.location.href='welcome'">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 				</div>
@@ -100,8 +112,7 @@
 									onclick="keyType(this)">3</button>
 							</td>
 							<td class="keyFuntion" colspan="2"><button
-									style="width: 80px;" type="button" class="btn btn-success"
-									onclick="window.location.href='home'">Enter</button></td>
+									style="width: 80px;" type="button" class="btn btn-success" onclick="window.location.href='welcome'">Enter</button></td>
 						</tr>
 						<tr>
 							<td>
@@ -135,15 +146,15 @@
 									onclick="keyType(this)">9</button>
 							</td>
 							<td class="keyFuntion" colspan="2"><button
-									style="width: 80px;" type="button" class="btn btn-danger"
-									onclick="window.location.href='home'">Cancel</button></td>
+									style="width: 80px;" type="button" class="btn btn-danger" onclick="window.location.href='welcome'">Cancel</button></td>
 						</tr>
 						<tr>
 							<td>
 								<button type="button" class="btn btn-primary">&nbsp</button>
 							</td>
 							<td>
-								<button type="button" class="btn btn-primary" value="0">0</button>
+								<button type="button" class="btn btn-primary" value="0"
+									onclick="keyType(this)">0</button>
 							</td>
 							<td>
 								<button type="button" class="btn btn-primary">&nbsp</button>
@@ -154,5 +165,6 @@
 				</div>
 			</div>
 		</div>
+	</div>
 </body>
 </html>
