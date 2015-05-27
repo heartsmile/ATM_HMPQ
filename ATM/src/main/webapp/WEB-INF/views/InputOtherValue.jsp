@@ -25,7 +25,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Withdraw Money</title>
 </head>
 <body>
 	<div id="main">
@@ -41,11 +41,10 @@
 					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow.png">
 					</button>
-
 				</div>
 			</div>
 <!-- Begin Screen -->
-			<div id="screen">
+			 <div id="screen">
 				<div id=title>
 					<div id=logo>
 						<img src="resources/imgs/logo.jpg">
@@ -57,17 +56,17 @@
 				</div>
 				<div id=content>
 					<div id=functionLeft>
-						<a href="withdraw"><label class="labelLeft">Withdraw</label></a> 
-						<label class="labelLeft">Check Balance</label> 
-						<label class="labelLeft">Transfer</label>
+						<label class="labelLeft">500.000</label> 
+						<label class="labelLeft">2.000.000</label> 
+						<label class="labelLeft">3.000.000</label>
 					</div>
 					<div id=functionRight>
-						<label class="labelRight">View History</label> 
-						<label class="labelRight">Change PIN</label> 
-						<label class="labelRight">Exit</label>
+						<label class="labelRight">1.000.000</label> 
+						<label class="labelRight">2.500.000</label> 
+						<label class="labelRight">Enter other</label>
 					</div>
 				</div>
-			</div>
+			</div> 
 <!-- End Screen -->
 			<div id="right">
 				<div id="rightContent">
@@ -150,31 +149,6 @@
 							<td class="keyFuntion" colspan="2"></td>
 						</tr>
 					</table>
-				</div>
-				<div id="cardBoard">
-					<div id="cardPick">
-						<div id="pickPanel" class="panel panel-default">
-							<button type="button" class="btn btn-primary">
-								<img alt="" src="resources/imgs/card.png">Card 1
-							</button>
-							<button type="button" class="btn btn-primary">
-								<img alt="" src="resources/imgs/card.png">Card 2
-							</button>
-							<button type="button" class="btn btn-success">
-								<img src="resources/imgs/pick.png">Pick
-							</button>
-
-						</div>
-					</div>
-					<div id="cardInsert">
-						<div id="insertPanel" class="panel panel-default">
-							<label><img alt="" src="resources/imgs/cardIn.png"></label>
-							<button type="button" class="btn btn-warning">
-								<img alt="" src="resources/imgs/insert.png"> Insert card
-							</button>
-
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

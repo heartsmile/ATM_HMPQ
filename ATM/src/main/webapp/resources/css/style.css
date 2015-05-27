@@ -212,7 +212,7 @@
 
 #screen #content #functionLeft  .labelLeft {
 	border-radius: 78% 0% 0% 78%/100% 0% 0% 100%;
-	background-color: #2a78f7;
+	background-color: #80ff00;
 	width: 140px;
 	height: 30px;
 	margin: 40px;
@@ -226,7 +226,7 @@
 
 #screen #content #functionRight .labelRight {
 	border-radius: 0% 78% 78% 0%/0% 100% 100% 0%;
-	background-color: #2a78f7;
+	background-color: #80ff00;
 	width: 140px;
 	height: 30px;
 	margin: 40px;

@@ -25,7 +25,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Withdraw Money</title>
 </head>
 <body>
 	<div id="main">
@@ -41,11 +41,10 @@
 					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow.png">
 					</button>
-
 				</div>
 			</div>
 <!-- Begin Screen -->
-			<div id="screen">
+			 <div id="screen">
 				<div id=title>
 					<div id=logo>
 						<img src="resources/imgs/logo.jpg">
@@ -57,17 +56,17 @@
 				</div>
 				<div id=content>
 					<div id=functionLeft>
-						<a href="withdraw"><label class="labelLeft">Withdraw</label></a> 
-						<label class="labelLeft">Check Balance</label> 
-						<label class="labelLeft">Transfer</label>
+						<label class="labelLeft">500.000</label> 
+						<label class="labelLeft">2.000.000</label> 
+						<label class="labelLeft">3.000.000</label>
 					</div>
 					<div id=functionRight>
-						<label class="labelRight">View History</label> 
-						<label class="labelRight">Change PIN</label> 
-						<label class="labelRight">Exit</label>
+						<label class="labelRight">1.000.000</label> 
+						<label class="labelRight">2.500.000</label> 
+						<label class="labelRight">Enter other</label>
 					</div>
 				</div>
-			</div>
+			</div> 
 <!-- End Screen -->
 			<div id="right">
 				<div id="rightContent">
@@ -151,7 +150,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="cardBoard">
+				<!-- <div id="cardBoard">
 					<div id="cardPick">
 						<div id="pickPanel" class="panel panel-default">
 							<button type="button" class="btn btn-primary">
@@ -175,7 +174,7 @@
 
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
