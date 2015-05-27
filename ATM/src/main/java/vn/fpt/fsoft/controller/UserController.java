@@ -41,9 +41,7 @@ public class UserController {
 		card.setPIN(pin);
 		cardReader.setCard(card);
 		
-		if(userService.auth(cardReader, card, attempt)){
-			
-		}else{
+		if(!userService.auth(cardReader, card, attempt)){
 			
 			if(attempt == 3){
 				map.addAttribute("message", Constant.LOGIN_LOCK);
