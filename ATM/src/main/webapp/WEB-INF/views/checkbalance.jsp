@@ -32,10 +32,10 @@
 		<div id="center" class="panel panel-default">
 			<div id="left">
 				<div id="leftContent">
-					<button type="button" class="functionButton" onclick="window.location.href='withdraw'">
+					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='checkbalance'">
+					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow.png">
 					</button>
 					<button type="button" class="functionButton">
@@ -44,7 +44,7 @@
 
 				</div>
 			</div>
-<!-- Begin Screen -->
+			<!-- Begin Screen -->
 			<div id="screen">
 				<div id=title>
 					<div id=logo>
@@ -54,30 +54,29 @@
 						<p>TP Bank ATM</p>
 						<p id="advise">Please select a transaction</p>
 					</div>
-				</div>
-				<div id=content>
-					<div id=functionLeft>
-						<label class="labelLeft">Withdraw</label> 
-						<label class="labelLeft">Check Balance</label> 
-						<label class="labelLeft">Transfer</label>
-					</div>
-					<div id=functionRight>
-						<label class="labelRight">View History</label> 
-						<label class="labelRight">Change PIN</label> 
-						<label class="labelRight">Exit</label>
+
+					<label>Your account have: ${balance} VND</label> <br>
+
+					<div>
+						<p>Do you want to print receipt?</p>
+						<button>OK</button>
+						<button>Cancel</button>
 					</div>
 				</div>
+
 			</div>
-<!-- End Screen -->
+			<!-- End Screen -->
 			<div id="right">
 				<div id="rightContent">
 					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton">
+					<button type="button" class="functionButton"
+						onclick="window.location.href='home'">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton">
+					<button type="button" class="functionButton"
+						onclick="window.location.href='home'">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 				</div>
@@ -101,7 +100,8 @@
 									onclick="keyType(this)">3</button>
 							</td>
 							<td class="keyFuntion" colspan="2"><button
-									style="width: 80px;" type="button" class="btn btn-success">Enter</button></td>
+									style="width: 80px;" type="button" class="btn btn-success"
+									onclick="window.location.href='home'">Enter</button></td>
 						</tr>
 						<tr>
 							<td>
@@ -135,7 +135,8 @@
 									onclick="keyType(this)">9</button>
 							</td>
 							<td class="keyFuntion" colspan="2"><button
-									style="width: 80px;" type="button" class="btn btn-danger">Cancel</button></td>
+									style="width: 80px;" type="button" class="btn btn-danger"
+									onclick="window.location.href='home'">Cancel</button></td>
 						</tr>
 						<tr>
 							<td>
@@ -151,33 +152,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="cardBoard">
-					<div id="cardPick">
-						<div id="pickPanel" class="panel panel-default">
-							<button type="button" class="btn btn-primary">
-								<img alt="" src="resources/imgs/card.png">Card 1
-							</button>
-							<button type="button" class="btn btn-primary">
-								<img alt="" src="resources/imgs/card.png">Card 2
-							</button>
-							<button type="button" class="btn btn-success">
-								<img src="resources/imgs/pick.png">Pick
-							</button>
-
-						</div>
-					</div>
-					<div id="cardInsert">
-						<div id="insertPanel" class="panel panel-default">
-							<label><img alt="" src="resources/imgs/cardIn.png"></label>
-							<button type="button" class="btn btn-warning">
-								<img alt="" src="resources/imgs/insert.png"> Insert card
-							</button>
-
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>
