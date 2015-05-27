@@ -151,7 +151,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="cardBoard">
+				<!-- <div id="cardBoard">
 					<div id="cardPick">
 						<div id="pickPanel" class="panel panel-default">
 							<button type="button" class="btn btn-primary">
@@ -175,7 +175,7 @@
 
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

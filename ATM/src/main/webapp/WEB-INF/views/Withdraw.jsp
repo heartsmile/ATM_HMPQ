@@ -39,12 +39,18 @@
 						</button>
 						<input type="hidden" value="500000" name="moneyValue">
 					</form>
-					<button type="button" class="functionButton">
-						<img src="resources/imgs/arrow.png">
-					</button>
-					<button type="button" class="functionButton">
-						<img src="resources/imgs/arrow.png">
-					</button>
+					<form method="post" action="recommendedValue">
+						<button type="submit" class="functionButton">
+							<img src="resources/imgs/arrow.png">
+						</button>
+						<input type="hidden" value="2000000" name="moneyValue">
+					</form>
+					<form method="post" action="recommendedValue">
+						<button type="submit" class="functionButton">
+							<img src="resources/imgs/arrow.png">
+						</button>
+						<input type="hidden" value="3000000" name="moneyValue">
+					</form>
 				</div>
 			</div>
 <!-- Begin Screen -->
@@ -74,13 +80,19 @@
 <!-- End Screen -->
 			<div id="right">
 				<div id="rightContent">
-					<button type="button" class="functionButton">
-						<img src="resources/imgs/arrow2.png">
-					</button>
-					<button type="button" class="functionButton">
-						<img src="resources/imgs/arrow2.png">
-					</button>
-					<button type="button" class="functionButton">
+					<form method="post" action="recommendedValue">
+						<button type="submit" class="functionButton">
+							<img src="resources/imgs/arrow2.png">
+						</button>
+						<input type="hidden" value="1000000" name="moneyValue">
+					</form>
+					<form method="post" action="recommendedValue">
+						<button type="submit" class="functionButton">
+							<img src="resources/imgs/arrow2.png">
+						</button>
+						<input type="hidden" value="2500000" name="moneyValue">
+					</form>
+					<button type="button" class="functionButton" onclick="window.location.href='otherValue'">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 				</div>

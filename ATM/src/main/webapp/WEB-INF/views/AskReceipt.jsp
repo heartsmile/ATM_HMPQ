@@ -66,10 +66,8 @@
 					</div>
 				</div>
 				<div id=content>
-					<div id=functionCenter class="input-group">
-						<label class="labelCenter">Enter your amount you want to withdraw below, number you
-						enter have to divisible to 50.000</label>
-						<input id="numOfOtherMoney" class="form-control" type="text" >
+					<div id=functionCenter>
+						<label class="labelCenter" align="center">Do you want print receipt?</label>
 					</div>
 					<div id=functionRight>
 						<!-- <label class="labelRight"></label> --> 
@@ -84,10 +82,10 @@
 					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='submitOtherValue'">
+					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='withdraw'">
+					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 				</div>

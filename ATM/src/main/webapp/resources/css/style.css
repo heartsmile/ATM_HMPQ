@@ -210,6 +210,18 @@
 	clear: none;
 }
 
+#screen #content #functionCenter {
+	width: 70%;
+	height: 30%;
+	margin: auto;
+	clear: none;
+	margin-top: 40px;
+}
+
+#screen #content #functionCenter input{
+	width: 100%;
+}
+
 #screen #content #functionLeft  .labelLeft {
 	border-radius: 78% 0% 0% 78%/100% 0% 0% 100%;
 	background-color: #80ff00;

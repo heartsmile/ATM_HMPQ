@@ -36,7 +36,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<title>Withdraw Money</title>
+<title>Eject Card</title>
 </head>
 <body>
 	<div id="main">
@@ -62,19 +62,17 @@
 					</div>
 					<div id=message>
 						<p>TP Bank ATM</p>
-						<p id="advise">Please select a transaction</p>
+						<!-- <p id="advise">Please select a transaction</p> -->
 					</div>
 				</div>
 				<div id=content>
-					<div id=functionCenter class="input-group">
-						<label class="labelCenter">Enter your amount you want to withdraw below, number you
-						enter have to divisible to 50.000</label>
-						<input id="numOfOtherMoney" class="form-control" type="text" >
+					<div id=functionCenter>
+						<label class="labelCenter" align="center">Please receive your card! </label>
 					</div>
 					<div id=functionRight>
 						<!-- <label class="labelRight"></label> --> 
-						<label class="labelRight">OK</label> 
-						<label class="labelRight">Cancel</label>
+						<!-- <label class="labelRight">OK</label> 
+						<label class="labelRight">Cancel</label> -->
 					</div>
 				</div>
 			</div> 
@@ -84,10 +82,10 @@
 					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='submitOtherValue'">
+					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='withdraw'">
+					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 				</div>
