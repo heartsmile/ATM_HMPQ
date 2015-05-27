@@ -6,6 +6,8 @@ import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,17 +34,17 @@ public class CardDao {
 		if (list.size() > 0) {
 			check = true;
 		}
-		
+
 		session.close();
 
 		return check;
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public boolean validateCard(String cardNo){
+	public boolean validateCard(String cardNo) {
 		boolean check = false;
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		session.beginTransaction();
 		List<Card> list = session.createCriteria(Card.class)
 				.add(Restrictions.eq("cardNo", cardNo)).list();
@@ -50,34 +52,34 @@ public class CardDao {
 		if (list.size() > 0) {
 			check = true;
 		}
-		
+
 		session.close();
-		
+
 		return check;
 	}
-	
-	public void block(String cardNo){
+
+	public void block(String cardNo) {
 		String sql = "update Card c set c.status = 'block' where c.cardNo = :cardno";
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		session.beginTransaction();
 		session.createQuery(sql).setString("cardno", cardNo).executeUpdate();
 		session.getTransaction().commit();
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public String getAccountNo(String cardNo){
+	public String getAccountNo(String cardNo) {
 		String accountNo = "";
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		session.beginTransaction();
-		List<Account> list = session.createCriteria(Account.class).setFetchMode("Card", FetchMode.JOIN).add(Restrictions.eq("Card.cardNo", cardNo)).list();
+		List<Account> list = session.createCriteria(Account.class).createCriteria("cards").add(Restrictions.eq("cardNo", cardNo)).list();
 		session.close();
-		
+
 		for (Account account : list) {
 			accountNo = account.getAccountNo();
 		}
-		
+
 		return accountNo;
 	}
 }
