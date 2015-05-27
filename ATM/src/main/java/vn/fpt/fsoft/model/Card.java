@@ -52,11 +52,11 @@ public class Card {
 		this.cardNo = cardNo;
 	}
 	
-	public String getAccount(){
+	public String getAccountNo(){
 		return cardDao.getAccountNo(cardNo);
 	}
 
-	public void setAccount(String account) {
+	public void setAccountNo(String account) {
 		this.accountNo = account;
 	}
 
