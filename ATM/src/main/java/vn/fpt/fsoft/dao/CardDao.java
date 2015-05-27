@@ -3,12 +3,14 @@ package vn.fpt.fsoft.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import vn.fpt.fsoft.entity.Account;
 import vn.fpt.fsoft.entity.Card;
 
 @Component
@@ -64,18 +66,18 @@ public class CardDao {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public int getAccountID(String cardNo){
-		int accountID = 0;
+	public String getAccountNo(String cardNo){
+		String accountNo = "";
 		Session session = sessionFactory.getCurrentSession();
 		
 		session.beginTransaction();
-		List<Card> list = session.createCriteria(Card.class).add(Restrictions.eq("cardNo", cardNo)).list();
+		List<Account> list = session.createCriteria(Account.class).setFetchMode("Card", FetchMode.JOIN).add(Restrictions.eq("Card.cardNo", cardNo)).list();
 		session.close();
 		
-		for (Card card : list) {
-			accountID = card.getAccountID();
+		for (Account account : list) {
+			accountNo = account.getAccountNo();
 		}
 		
-		return accountID;
+		return accountNo;
 	}
 }

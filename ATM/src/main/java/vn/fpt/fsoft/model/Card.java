@@ -15,7 +15,7 @@ public class Card {
 	private String PIN;
 	private Date startDate;
 	private Date expriedDate;
-	private int account;
+	private String accountNo;
 	public String status;
 	private int attempt;
 	
@@ -52,12 +52,12 @@ public class Card {
 		this.cardNo = cardNo;
 	}
 	
-	public int getAccount(){
-		return cardDao.getAccountID(cardNo);
+	public String getAccount(){
+		return cardDao.getAccountNo(cardNo);
 	}
 
-	public void setAccount(int account) {
-		this.account = account;
+	public void setAccount(String account) {
+		this.accountNo = account;
 	}
 
 	
