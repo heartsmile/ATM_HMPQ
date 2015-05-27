@@ -21,8 +21,6 @@ public class UserController {
 	@Autowired
 	private CardReader cardReader;
 	@Autowired
-	private Card card;
-	@Autowired
 	private UserService userService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -34,10 +32,10 @@ public class UserController {
 	@RequestMapping(value = "/loginprocess", method = RequestMethod.POST)
 	public String auth(@RequestParam(value = "pin") String pin, ModelMap map) {
 		String forward = "Welcome";
-		Card temp = (Card) map.get("card");
+		Card card = (Card) map.get("card");
 		int attempt = card.getAttempt();
 		
-		card.setCardNo(temp.getCardNo());
+		card.setCardNo(card.getCardNo());
 		card.setPIN(pin);
 		cardReader.setCard(card);
 		

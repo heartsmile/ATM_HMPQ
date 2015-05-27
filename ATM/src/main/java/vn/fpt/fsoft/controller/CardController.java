@@ -23,6 +23,8 @@ public class CardController {
 	private CardReader cardReader;
 	@Autowired
 	private CardService cardService;
+	@Autowired
+	private Card card;
 
 	@RequestMapping(value = "/insert")
 	public String home() {
@@ -32,7 +34,6 @@ public class CardController {
 	@RequestMapping(value = "/insertprocess", method = RequestMethod.POST)
 	public String readCard(@RequestParam(value = "cardid") String cardNo,ModelMap map) {
 		String forward = "insertcard";
-		Card card = new Card();
 		card.setCardNo(cardNo);
 		cardReader.setCard(card);
 
