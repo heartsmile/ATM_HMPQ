@@ -78,7 +78,7 @@ public class WithdrawServices {
 		if(tempAmount == amount){ //If ATM has enough money
 
 			//change remaining money(cash) in ATM
-			
+			stDao.upDateCash(output, 1);
 			return output;
 		}
 
