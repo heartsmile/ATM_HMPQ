@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.context.request.WebRequest;
 
 import vn.fpt.fsoft.constant.Constant;
 import vn.fpt.fsoft.model.Card;
@@ -32,7 +34,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/loginprocess", method = RequestMethod.POST)
-	public String auth(@RequestParam(value = "pin") String pin, ModelMap map) {
+	public String auth(@RequestParam(value = "pin") String pin, ModelMap map,WebRequest request, SessionStatus status) {
 		String forward = "";
 		Card card = null;
 		if ((card = (Card) map.get("card")) != null) {
@@ -45,7 +47,8 @@ public class UserController {
 			if (!userService.auth(cardReader, card, attempt)) {
 
 				if (attempt == 3) {
-					map.remove("card");
+					status.setComplete();
+				    request.removeAttribute("card", WebRequest.SCOPE_SESSION);
 					map.addAttribute("message", Constant.LOGIN_LOCK);
 				} else {
 					map.addAttribute("message", Constant.LOGIN_ERROR);
