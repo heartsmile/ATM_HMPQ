@@ -24,4 +24,9 @@ public class BalanceController {
 		modelMap.addAttribute("balance", balance);
 		return "checkbalance";
 	}
+	
+	@RequestMapping("/printreceipt")
+	public String printReceipt(ModelMap modelMap){
+		return "PrintReceipt";
+	}
 }

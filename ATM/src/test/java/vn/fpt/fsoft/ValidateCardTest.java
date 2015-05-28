@@ -23,8 +23,8 @@ public class ValidateCardTest {
 	@Autowired
 	private Card card;
 
-	public static final String CARDNO_ACCEPT_BUT_NOTEXIST_DATABASE = "123466";
-	public static final String CARDNO_ACCEPT_EXIST_DATABASE = "123465";
+	public static final String CARDNO_ACCEPT_BUT_NOTEXIST_DATABASE = "1234555";
+	public static final String CARDNO_ACCEPT_EXIST_DATABASE = "1234567";
 	
 	@Test
 	public void testValidateCardNotExistsDatabase(){
