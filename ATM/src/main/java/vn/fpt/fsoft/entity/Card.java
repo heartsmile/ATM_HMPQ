@@ -1,10 +1,8 @@
 package vn.fpt.fsoft.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-import javax.annotation.PostConstruct;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -15,12 +13,8 @@ import javax.persistence.OneToMany;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-public class Card implements Serializable{
+public class Card{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	@Id
 	@Length(max = 16)
 	private String cardNo;

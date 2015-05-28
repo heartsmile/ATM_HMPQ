@@ -64,7 +64,7 @@ public class CardDao {
 
 		session.beginTransaction();
 		session.createQuery(sql).setString("cardno", cardNo).executeUpdate();
-		session.close();
+		session.getTransaction().commit();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -83,5 +83,30 @@ public class CardDao {
 		}
 
 		return accountNo;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public int getAttempt(String cardNo ){
+		int attempt = 0;
+		Session session = sessionFactory.getCurrentSession();
+		
+		session.beginTransaction();
+		List<Card> list = session.createCriteria(Card.class).add(Restrictions.eq("cardNo", cardNo)).list();
+		session.getTransaction().commit();
+		
+		for (Card card : list) {
+			attempt = card.getAttempt();
+		}
+		
+		return attempt;
+	}
+	
+	public void setAttempt(String cardNo, int attempt ){
+		String sql = "update Card c set c.attempt = :attempt where c.cardNo = :cardno";
+		Session session = sessionFactory.getCurrentSession();
+		
+		session.beginTransaction();
+		int i = session.createQuery(sql).setInteger("attempt", attempt).setString("cardno", cardNo).executeUpdate();
+		session.getTransaction().commit();
 	}
 }

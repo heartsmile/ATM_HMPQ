@@ -22,6 +22,8 @@ public class UserController {
 	private CardReader cardReader;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private Card card;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
@@ -37,7 +39,6 @@ public class UserController {
 			forward = "redirect:/welcome";
 			int attempt = card.getAttempt();
 
-			card.setCardNo(card.getCardNo());
 			card.setPIN(pin);
 			cardReader.setCard(card);
 
@@ -48,6 +49,7 @@ public class UserController {
 				} else {
 					map.addAttribute("message", Constant.LOGIN_ERROR);
 				}
+				
 				forward = "login";
 				map.addAttribute("attempt", attempt);
 			}

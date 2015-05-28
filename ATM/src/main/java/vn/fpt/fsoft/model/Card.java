@@ -33,12 +33,16 @@ public class Card {
 	}
 
 	public int getAttempt() {
-		attempt +=1;
+		attempt = cardDao.getAttempt(cardNo);
 		return attempt;
+	}
+	
+	public void setAttempt(int count){
+		cardDao.setAttempt(cardNo,count);
 	}
 
 	public void block() {
-		attempt = 0;
+		//attempt = 0;
 		cardDao.block(cardNo);
 	}
 

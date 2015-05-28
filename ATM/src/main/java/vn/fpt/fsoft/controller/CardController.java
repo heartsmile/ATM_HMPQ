@@ -1,6 +1,7 @@
 package vn.fpt.fsoft.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,6 @@ import vn.fpt.fsoft.constant.Constant;
 import vn.fpt.fsoft.model.Card;
 import vn.fpt.fsoft.model.CardReader;
 import vn.fpt.fsoft.service.CardService;
-import vn.fpt.fsoft.service.UserService;
 
 @Controller
 @RequestMapping(value = "/card")
@@ -34,7 +34,6 @@ public class CardController {
 	@RequestMapping(value = "/insertprocess", method = RequestMethod.POST)
 	public String readCard(@RequestParam(value = "cardid") String cardNo,ModelMap map) {
 		String forward = "Home";
-		card.reset();
 		card.setCardNo(cardNo);
 		cardReader.setCard(card);
 
