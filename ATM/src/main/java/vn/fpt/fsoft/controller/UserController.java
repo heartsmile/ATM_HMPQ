@@ -53,6 +53,8 @@ public class UserController {
 			}
 
 			map.addAttribute("card", card);
+		}else{
+			forward = "redirect:/home";
 		}
 
 		return forward;

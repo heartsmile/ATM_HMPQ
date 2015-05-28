@@ -64,7 +64,7 @@ public class CardDao {
 
 		session.beginTransaction();
 		session.createQuery(sql).setString("cardno", cardNo).executeUpdate();
-		session.getTransaction().commit();
+		session.close();
 	}
 
 	@SuppressWarnings("unchecked")

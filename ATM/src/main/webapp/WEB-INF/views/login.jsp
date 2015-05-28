@@ -194,6 +194,9 @@
 			var pinCode = $('#pin').val();
 			if (id == 'clear') {
 				clear(pinCode);
+			} else if(id == 'cancel'){
+				var contextPath='<%=request.getContextPath()%>';
+				window.location.href = contextPath+"/home";
 			} else {
 				$('#pin').val(pinCode + id);
 			}
@@ -300,7 +303,7 @@
 						<td>
 							<button type="button" class="btn btn-primary" id="9">9</button>
 						</td>
-						<td class="keyFuntion" colspan="2"><button
+						<td class="keyFuntion" colspan="2"><button id="cancel"
 								style="width: 80px;" type="button" class="btn btn-danger">Cancel</button></td>
 					</tr>
 					<tr>
