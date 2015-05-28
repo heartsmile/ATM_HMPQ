@@ -4,20 +4,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript">
-	function keyType(id) {
-		var el = document.getElementById("numOfOtherMoney");
-		var num = id.value;
-		var oldValue = el.value;
-		el.value = oldValue + num + "";
-	}
-	function clearText() {
-		var el = document.getElementById("numOfOtherMoney");
-		var oldValue = el.value + "";
-		el.value = oldValue.substring(0, oldValue.length - 1);
-	}
-</script>
-
 <script>
     var max_time = 6;
     var cinterval;

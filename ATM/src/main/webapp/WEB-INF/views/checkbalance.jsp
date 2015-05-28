@@ -84,7 +84,7 @@
 						<img src="resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton"
-						onclick="window.location.href='welcome'">
+						onclick="window.location.href='printReceipt'">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton"
@@ -112,7 +112,8 @@
 									onclick="keyType(this)">3</button>
 							</td>
 							<td class="keyFuntion" colspan="2"><button
-									style="width: 80px;" type="button" class="btn btn-success" onclick="window.location.href='printreceipt'">Enter</button></td>
+									style="width: 80px;" type="button" class="btn btn-success" onclick="window.location.href='printReceipt'">Enter</button></td>
+							
 						</tr>
 						<tr>
 							<td>
@@ -146,7 +147,8 @@
 									onclick="keyType(this)">9</button>
 							</td>
 							<td class="keyFuntion" colspan="2"><button
-									style="width: 80px;" type="button" class="btn btn-danger" onclick="window.location.href='welcome'">Cancel</button></td>
+									style="width: 80px;" type="button" class="btn btn-danger" 
+									onclick="window.location.href='welcome'">Cancel</button></td>
 						</tr>
 						<tr>
 							<td>

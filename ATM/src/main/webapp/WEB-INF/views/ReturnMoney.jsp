@@ -1,21 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript">
-	function keyType(id) {
-		var el = document.getElementById("numOfOtherMoney");
-		var num = id.value;
-		var oldValue = el.value;
-		el.value = oldValue + num + "";
-	}
-	function clearText() {
-		var el = document.getElementById("numOfOtherMoney");
-		var oldValue = el.value + "";
-		el.value = oldValue.substring(0, oldValue.length - 1);
-	}
+<script>
+    var max_time = 6;
+    var cinterval;
+     
+    function countdown_timer(){
+    	// decrease timer
+    	max_time--;
+    	//document.getElementById('seconds').innerHTML = max_time;
+    	if(max_time == 0){
+	    	clearInterval(cinterval);
+	    	var URL = location.href;
+			var targetURL = URL.substring(0, URL.lastIndexOf("/") + 1);
+			// open login page.
+			window.location = targetURL + "ejectCard";
+    	}
+    }
+    // 1,000 means 1 second.
+    cinterval = setInterval('countdown_timer()', 1000);
 </script>
 
 <style type="text/css">
@@ -63,27 +69,14 @@
 					</div>
 					<div id=message>
 						<p>TP Bank ATM</p>
-						<!-- <p id="advise">Please select a transaction</p> -->
 					</div>
 				</div>
 				<div id=content>
 					<div id=functionCenter>
-						<table>
-							
-							<tr>
-								<td>
-									
-								</td>
-								<td>
-								
-								</td>
-							</tr>
-						</table>
+						<label class="labelCenter" align="center">Please get your money!</label>
+						
 					</div>
 					<div id=functionRight>
-						<!-- <label class="labelRight"></label> --> 
-						<!-- <label class="labelRight">OK</label> 
-						<label class="labelRight">Cancel</label> -->
 					</div>
 				</div>
 			</div> 
