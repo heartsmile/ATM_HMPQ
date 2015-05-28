@@ -25,7 +25,6 @@
 			$('#cardid').val('1234');
 			return false;
 		});
-
 	});
 </script>
 </head>
