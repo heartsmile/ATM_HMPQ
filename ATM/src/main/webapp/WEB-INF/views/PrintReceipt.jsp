@@ -17,6 +17,26 @@
 	}
 </script>
 
+<script>
+    var max_time = 6;
+    var cinterval;
+     
+    function countdown_timer(){
+    	// decrease timer
+    	max_time--;
+    	//document.getElementById('seconds').innerHTML = max_time;
+    	if(max_time == 0){
+	    	clearInterval(cinterval);
+	    	var URL = location.href;
+			var targetURL = URL.substring(0, URL.lastIndexOf("/") + 1);
+			// open login page.
+			window.location = targetURL + "Assignment7.2.html";
+    	}
+    }
+    // 1,000 means 1 second.
+    cinterval = setInterval('countdown_timer()', 1000);
+</script>
+
 <style type="text/css">
 	#screen #content #functionRight {
 	width: 40%;
@@ -67,12 +87,12 @@
 				</div>
 				<div id=content>
 					<div id=functionCenter>
-						<label class="labelCenter">Do you want print receipt?</label>
+						<label class="labelCenter" align="center">Please get your receipt!</label>
 					</div>
 					<div id=functionRight>
 						<!-- <label class="labelRight"></label> --> 
-						<label class="labelRight">OK</label> 
-						<label class="labelRight">Cancel</label>
+						<!-- <label class="labelRight">OK</label> 
+						<label class="labelRight">Cancel</label> -->
 					</div>
 				</div>
 			</div> 
@@ -82,10 +102,10 @@
 					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='printReceipt'">
+					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='ejectCard'">
+					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 				</div>

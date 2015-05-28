@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import vn.fpt.fsoft.dao.StockDao;
 import vn.fpt.fsoft.model.Card;
 
 @Controller
@@ -15,9 +16,14 @@ public class HomeController {
 	@Autowired
 	private Card card;
 	
+	//@Autowired
+	//private StockDao stDao;
+	
 	@RequestMapping(value = "/welcome")
 	public String welcome(ModelMap modelMap){		
 		modelMap.put("card", card);
+		
+		//stDao.getMoneyList(1);
 		
 		return "Welcome";
 	}

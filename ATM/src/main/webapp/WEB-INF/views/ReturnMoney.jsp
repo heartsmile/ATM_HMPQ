@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -67,12 +68,22 @@
 				</div>
 				<div id=content>
 					<div id=functionCenter>
-						<label class="labelCenter">Do you want print receipt?</label>
+						<table>
+							
+							<tr>
+								<td>
+									
+								</td>
+								<td>
+								
+								</td>
+							</tr>
+						</table>
 					</div>
 					<div id=functionRight>
 						<!-- <label class="labelRight"></label> --> 
-						<label class="labelRight">OK</label> 
-						<label class="labelRight">Cancel</label>
+						<!-- <label class="labelRight">OK</label> 
+						<label class="labelRight">Cancel</label> -->
 					</div>
 				</div>
 			</div> 
@@ -82,10 +93,10 @@
 					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='printReceipt'">
+					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='ejectCard'">
+					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 				</div>

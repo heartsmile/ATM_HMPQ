@@ -73,7 +73,9 @@ public class CardDao {
 		Session session = sessionFactory.getCurrentSession();
 
 		session.beginTransaction();
-		List<Account> list = session.createCriteria(Account.class).createCriteria("cards").add(Restrictions.eq("cardNo", cardNo)).list();
+		List<Account> list = session.createCriteria(Account.class)
+				.createCriteria("cards").add(Restrictions.eq("cardNo", cardNo))
+				.list();
 		session.close();
 
 		for (Account account : list) {

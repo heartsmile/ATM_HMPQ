@@ -15,8 +15,6 @@ public class Money {
 	@Id
 	private Integer moneyID;
 	private Float moneyValue;
-	@Length(max = 100)
-	private String address;
 	@OneToMany(mappedBy = "moneyID")
 	private Set<Stock> stocks;
 	
@@ -34,14 +32,6 @@ public class Money {
 
 	public void setMoneyValue(Float moneyValue) {
 		this.moneyValue = moneyValue;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public Set<Stock> getStocks() {

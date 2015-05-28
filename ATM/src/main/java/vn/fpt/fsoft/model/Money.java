@@ -1,14 +1,12 @@
 package vn.fpt.fsoft.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Money {
 
 	private int quantity;
 	private int value;
-	
-	public Money(int quantity, int value) {
-		this.quantity = quantity;
-		this.value = value;
-	}
 
 	public int getQuantity() {
 		return quantity;
