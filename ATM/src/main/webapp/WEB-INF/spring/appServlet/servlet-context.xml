@@ -23,7 +23,10 @@
 
 	<annotation-driven />
 	<context:annotation-config />
-	<context:component-scan
-		base-package="vn.fpt.fsoft" />
+	<context:component-scan base-package="vn.fpt.fsoft"
+		scoped-proxy="targetClass" />
+
+	<beans:bean
+		class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
 
 </beans:beans>

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -112,9 +113,5 @@ public class Card implements Serializable{
 	public void setAccount(Account account) {
 		this.account = account;
 	}
-	
-	
-
-
 	
 }

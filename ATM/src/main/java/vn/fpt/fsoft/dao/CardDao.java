@@ -47,7 +47,7 @@ public class CardDao {
 
 		session.beginTransaction();
 		List<Card> list = session.createCriteria(Card.class)
-				.add(Restrictions.eq("cardNo", cardNo)).list();
+				.add(Restrictions.eq("cardNo", cardNo)).add(Restrictions.eq("status", "normal")).list();
 
 		if (list.size() > 0) {
 			check = true;

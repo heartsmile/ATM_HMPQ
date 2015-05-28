@@ -2,6 +2,8 @@ package vn.fpt.fsoft.model;
 
 import java.util.Date;
 
+import javax.annotation.PostConstruct;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -60,5 +62,9 @@ public class Card {
 		this.accountNo = account;
 	}
 
+	@PostConstruct
+	public void init(){
+		System.out.println("init");
+	}
 	
 }

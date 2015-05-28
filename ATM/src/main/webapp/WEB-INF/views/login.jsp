@@ -239,7 +239,7 @@
 								<table>
 									<tr>
 										<td>PIN</td>
-										<td><input type="text" name="pin" id="pin"></td>
+										<td><input type="text" name="pin" id="pin" readonly="true"></td>
 									</tr>
 								</table>
 						</c:if>
