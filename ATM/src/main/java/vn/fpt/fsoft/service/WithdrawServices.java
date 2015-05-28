@@ -8,10 +8,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import vn.fpt.fsoft.dao.StockDao;
+import vn.fpt.fsoft.dao.WithdrawDao;
 import vn.fpt.fsoft.model.Money;
 
 /**
@@ -23,6 +26,12 @@ public class WithdrawServices {
 
 	@Autowired
 	private StockDao stDao;
+	
+	@Autowired
+	private WithdrawDao withdrawDao;
+	
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	public List<Money> dispenseCash(int amount) {
 
@@ -67,9 +76,7 @@ public class WithdrawServices {
 		}
 		
 		if(tempAmount == amount){ //If ATM has enough money
-			
-			//change balance of account
-			
+
 			//change remaining money(cash) in ATM
 			
 			return output;
@@ -77,6 +84,11 @@ public class WithdrawServices {
 
 		return new ArrayList<Money>();
 
+	}
+	
+	public boolean changeAcountBalance(String AccNo, float remainingAmount){
+		
+		return withdrawDao.changeAcountBalance(AccNo, remainingAmount);
 	}
 
 }

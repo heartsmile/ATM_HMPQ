@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import vn.fpt.fsoft.constant.Constant;
+import vn.fpt.fsoft.model.Card;
 import vn.fpt.fsoft.model.Money;
 import vn.fpt.fsoft.service.WithdrawServices;
 
@@ -40,47 +41,6 @@ public class WithdrawalController {
 		return "Withdraw";
 	}
 
-	/*@RequestMapping("/recommendedValue")
-	public String recommendedValue(
-			@RequestParam(value = "moneyValue") String money, ModelMap modelMap) {
-
-		String forward = "Welcome";
-
-		// Card card = (Card) modelMap.get("card");
-
-		// get value of money from request
-		// System.out.println("" + money);
-
-		// check balance and add to modelMap
-		blController.checkBalance(modelMap);
-		float balance = (Float) modelMap.get("balance");
-		if (Float.parseFloat(money) <= balance) {
-			// if had enough money,
-
-			// write log
-
-			// dispense money
-			// if (money != null) {
-			List<Money> listMoney = withdrawService.dispenseCash(Integer
-					.parseInt(money));
-			for (Money m : listMoney) {
-				System.out.println(m.getValue() + ": " + m.getQuantity());
-			}
-			forward = "AskReceipt";
-			// }
-			
-			 modelMap.put("listMoney", listMoney); 
-			 // eject card
-			 ejectCard(modelMap); 
-			 // show "get receipt?" screen 
-			// forward = "AskReceipt"; }
-			 
-		} else {
-			// show error screen
-		}
-		return forward;
-	}*/
-
 	@RequestMapping("/otherValue")
 	public String otherValue() {
 
@@ -92,6 +52,7 @@ public class WithdrawalController {
 			ModelMap modelMap) {
 
 		String jsonResult = "{\"result\": \"0\",\"message\": \"Nothing\"}";
+		String accountNo = ((Card)modelMap.get("card")).getAccountNo();
 		
 		// validate input amount
 		String a = amountMoney;
@@ -101,6 +62,10 @@ public class WithdrawalController {
 		blController.checkBalance(modelMap);
 		float balance = (Float) modelMap.get("balance");
 		if (moneyAmount <= balance) {	// if had enough money
+
+			//change account balance
+			Float remainingBalance = (balance - moneyAmount);
+			withdrawService.changeAcountBalance(accountNo, remainingBalance);
 			
 			// write log
 
