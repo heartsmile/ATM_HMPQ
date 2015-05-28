@@ -22,7 +22,7 @@
 		});
 
 		$('#card2').click(function() {
-			$('#cardid').val('1234');
+			$('#cardid').val('123466');
 			return false;
 		});
 	});
