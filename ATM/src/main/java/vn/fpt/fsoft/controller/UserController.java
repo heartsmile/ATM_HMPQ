@@ -45,6 +45,7 @@ public class UserController {
 			if (!userService.auth(cardReader, card, attempt)) {
 
 				if (attempt == 3) {
+					map.remove("card");
 					map.addAttribute("message", Constant.LOGIN_LOCK);
 				} else {
 					map.addAttribute("message", Constant.LOGIN_ERROR);
@@ -54,7 +55,6 @@ public class UserController {
 				map.addAttribute("attempt", attempt);
 			}
 
-			map.addAttribute("card", card);
 		}else{
 			forward = "redirect:/home";
 		}

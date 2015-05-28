@@ -17,12 +17,12 @@
 	$(document).ready(function() {
 
 		$('#card1').click(function() {
-			$('#cardid').val('123456');
+			$('#cardid').val('123465');
 			return false;
 		});
 
 		$('#card2').click(function() {
-			$('#cardid').val('123555');
+			$('#cardid').val('1235');
 			return false;
 		});
 	});
