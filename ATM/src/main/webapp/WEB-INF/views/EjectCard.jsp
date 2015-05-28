@@ -16,7 +16,7 @@
 	    	var URL = location.href;
 			var targetURL = URL.substring(0, URL.lastIndexOf("/") + 1);
 			// open login page.
-			window.location = targetURL + "welcome";
+			window.location = targetURL + "home";
     	}
     }
     // 1,000 means 1 second.

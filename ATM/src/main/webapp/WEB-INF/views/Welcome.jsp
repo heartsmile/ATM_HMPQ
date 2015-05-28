@@ -151,31 +151,6 @@
 						</tr>
 					</table>
 				</div>
-				<!-- <div id="cardBoard">
-					<div id="cardPick">
-						<div id="pickPanel" class="panel panel-default">
-							<button type="button" class="btn btn-primary">
-								<img alt="" src="resources/imgs/card.png">Card 1
-							</button>
-							<button type="button" class="btn btn-primary">
-								<img alt="" src="resources/imgs/card.png">Card 2
-							</button>
-							<button type="button" class="btn btn-success">
-								<img src="resources/imgs/pick.png">Pick
-							</button>
-
-						</div>
-					</div>
-					<div id="cardInsert">
-						<div id="insertPanel" class="panel panel-default">
-							<label><img alt="" src="resources/imgs/cardIn.png"></label>
-							<button type="button" class="btn btn-warning">
-								<img alt="" src="resources/imgs/insert.png"> Insert card
-							</button>
-
-						</div>
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</div>

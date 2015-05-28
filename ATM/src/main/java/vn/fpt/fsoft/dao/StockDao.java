@@ -65,7 +65,7 @@ public class StockDao {
 	}
 
 	public void upDateCash(List<vn.fpt.fsoft.model.Money> comsumed, int atmID){
-		Session session = sessionFactory.getCurrentSession();
+		/*Session session = sessionFactory.getCurrentSession();
 		String sql = "update Stock s set s.quantity = s.quantity- :qual where s.moneyID = :moneyID and s.atmid ="+ atmID;
 		List<Money> moneyList = getMoneyList();
 		for(vn.fpt.fsoft.model.Money m  : comsumed){
@@ -78,7 +78,7 @@ public class StockDao {
 			session.beginTransaction();
 			session.createQuery(sql).setInteger("qual",m.getQuantity()).setInteger("moneyID", moneyID).executeUpdate();
 			session.getTransaction().commit();
-		}
+		}*/
 		
 		
 	}
