@@ -62,9 +62,8 @@ public class Card {
 		this.accountNo = account;
 	}
 
-	@PostConstruct
-	public void init(){
-		System.out.println("init");
+	public void reset(){
+		attempt = 0;
 	}
 	
 }

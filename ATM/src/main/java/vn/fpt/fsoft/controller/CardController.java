@@ -34,6 +34,7 @@ public class CardController {
 	@RequestMapping(value = "/insertprocess", method = RequestMethod.POST)
 	public String readCard(@RequestParam(value = "cardid") String cardNo,ModelMap map) {
 		String forward = "Home";
+		card.reset();
 		card.setCardNo(cardNo);
 		cardReader.setCard(card);
 
@@ -48,7 +49,6 @@ public class CardController {
 			}
 			
 		} else {
-			
 			map.addAttribute("message",Constant.NOT_RECOGNIZE);
 		}
 

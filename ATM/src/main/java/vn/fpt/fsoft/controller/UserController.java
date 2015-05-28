@@ -31,29 +31,31 @@ public class UserController {
 
 	@RequestMapping(value = "/loginprocess", method = RequestMethod.POST)
 	public String auth(@RequestParam(value = "pin") String pin, ModelMap map) {
-		String forward = "redirect:/welcome";
+		String forward = "";
 		Card card = (Card) map.get("card");
-		int attempt = card.getAttempt();
-		card.setCardNo(card.getCardNo());
-		card.setPIN(pin);
-		cardReader.setCard(card);
-		
-		if(!userService.auth(cardReader, card, attempt)){
-			
-			if(attempt == 3){
-				map.addAttribute("message", Constant.LOGIN_LOCK);
-			}else{
-				map.addAttribute("message", Constant.LOGIN_ERROR);
+		if (card != null) {
+			forward = "redirect:/welcome";
+			int attempt = card.getAttempt();
+
+			card.setCardNo(card.getCardNo());
+			card.setPIN(pin);
+			cardReader.setCard(card);
+
+			if (!userService.auth(cardReader, card, attempt)) {
+
+				if (attempt == 3) {
+					map.addAttribute("message", Constant.LOGIN_LOCK);
+				} else {
+					map.addAttribute("message", Constant.LOGIN_ERROR);
+				}
+				forward = "login";
+				map.addAttribute("attempt", attempt);
 			}
-			
-			forward = "login";
-			map.addAttribute("attempt", attempt);
+
+			map.addAttribute("card", card);
 		}
-		
-		map.addAttribute("card", card);
 
 		return forward;
 	}
-	
-	
+
 }
