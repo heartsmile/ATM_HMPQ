@@ -23,14 +23,16 @@ public class AccountDao {
 		String accountNo = card.getAccountNo();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		List<Account> list = sessionFactory.getCurrentSession().createCriteria(Account.class).add(Restrictions.eq("accountNo",accountNo )).list();
+		List<Account> list = sessionFactory.getCurrentSession()
+				.createCriteria(Account.class)
+				.add(Restrictions.eq("accountNo", accountNo)).list();
 		session.close();
-		
+
 		for (Account ac : list) {
 			account.setAccountID(ac.getAccountID());
 			account.setBalance(ac.getBalance());
 		}
-		
+
 		return account;
 	}
 }

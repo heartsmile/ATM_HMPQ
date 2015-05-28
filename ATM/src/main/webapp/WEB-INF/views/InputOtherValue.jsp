@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,6 +37,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
+<script src="<c:url value="/resources/js/SubmitAmountMoney.js" />"
+	type="text/javascript"></script>
+	
 <title>Withdraw Money</title>
 </head>
 <body>
@@ -69,7 +74,7 @@
 					<div id=functionCenter class="input-group">
 						<label class="labelCenter">Enter your amount you want to withdraw below, number you
 						enter have to divisible to 50.000</label>
-						<input id="numOfOtherMoney" class="form-control" type="text" >
+						<input id="numOfOtherMoney" class="form-control" type="text" name="amountMoney">
 					</div>
 					<div id=functionRight>
 						<!-- <label class="labelRight"></label> --> 
@@ -84,7 +89,7 @@
 					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='submitOtherValue'">
+					<button type="button" class="functionButton" onclick="sendAmount()">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton" onclick="window.location.href='withdraw'">

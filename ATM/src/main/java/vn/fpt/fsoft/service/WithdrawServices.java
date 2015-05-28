@@ -25,24 +25,19 @@ public class WithdrawServices {
 	private StockDao stDao;
 
 	public List<Money> dispenseCash(int amount) {
+
 		List<Money> output = new ArrayList<Money>();
-
-		//List<Money> listMoneyData = 
-
 		List<Money> stockList = stDao.getMoneyList(1);
 
-//		vn.fpt.fsoft.model.Money moneyModel;
-//		for (vn.fpt.fsoft.model.Money money : listMoneyData) {
-//			//moneyModel = new vn.fpt.fsoft.model.Money(money.g, value)
-//		}
-
-		Collections.sort(stockList, Collections.reverseOrder(new MoneyComaprator()));
+		Collections.sort(stockList,
+				Collections.reverseOrder(new MoneyComaprator()));
 		int res = amount;
 		Money moneyModel;
 		for (Money m : stockList) {
 			if (res != 0) {
 				int tmpRest = (res % m.getValue());
-				//sheet : so to
+
+				// sheet : number of money sheet
 				int sheets = (res - tmpRest) / m.getValue();
 				if (m.getQuantity() >= sheets) {
 					res = tmpRest;
@@ -50,13 +45,32 @@ public class WithdrawServices {
 					moneyModel.setQuantity(sheets);
 					moneyModel.setValue(m.getValue());
 					output.add(moneyModel);
+				} else {
+					if (m.getQuantity() > 0) {
+						sheets = m.getQuantity();
+						res = res - m.getValue() * sheets;
+						moneyModel = new Money();
+						moneyModel.setQuantity(sheets);
+						moneyModel.setValue(m.getValue());
+						output.add(moneyModel);
+					}
 				}
 			} else {
 				break;
 			}
 		}
+		
+		//count to check if ATM has enough money
+		int tempAmount = 0;
+		for(Money m : output){
+			tempAmount += m.getValue() * m.getQuantity();
+		}
+		
+		if(tempAmount == amount){ //If ATM has enough money
+			return output;
+		}
 
-		return output;
+		return new ArrayList<Money>();
 
 	}
 

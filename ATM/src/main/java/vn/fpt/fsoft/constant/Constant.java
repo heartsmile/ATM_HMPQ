@@ -7,4 +7,8 @@ public interface Constant {
 	String CARD_INVALID = "<html>Card is invalid<br>Eject card...</html>";
 	String NOT_RECOGNIZE = "<html>System does not recognize ATM card<br>Eject card...</html>";
 	String REDIRECT_LOGIN_VALIDATECARD = "redirect:/auth/login";
+	//QUANTA5
+	String NOT_ENOUGH_MONEY = "Your current balance not enough, please try again!";
+	String INVALID_AMOUNT = "Invalid amount of money, please try again!";
+	String ATM_NOT_SERVICE = "Sorry, ATM is temporary stop service, please try again later!";
 }

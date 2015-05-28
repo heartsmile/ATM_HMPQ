@@ -59,7 +59,7 @@
 				</div>
 				<div id=content>
 					<div id=functionCenter>
-						<label>WELCOME TO TP BANK</label>
+						<label id="welcome">WELCOME TO TP BANK</label>
 						
 						<h2>${message }</h2>
 					</div>

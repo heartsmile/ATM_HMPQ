@@ -16,11 +16,11 @@ public class HomeController {
 	@Autowired
 	private Card card;
 	
-	//@Autowired
-	//private StockDao stDao;
-	
 	@RequestMapping(value = "/welcome")
-	public String welcome(ModelMap modelMap){		
+	public String welcome(ModelMap modelMap){	
+		card.setCardNo("123");
+		card.setAccountNo("563658956854752");
+		card.setPIN("1235");
 		modelMap.put("card", card);
 		
 		//stDao.getMoneyList(1);

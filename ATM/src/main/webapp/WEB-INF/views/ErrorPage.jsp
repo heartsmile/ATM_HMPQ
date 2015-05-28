@@ -1,22 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <script type="text/javascript">
 	function keyType(id) {
-		var el = document.getElementById("pass");
+		var el = document.getElementById("numOfOtherMoney");
 		var num = id.value;
 		var oldValue = el.value;
 		el.value = oldValue + num + "";
 	}
 	function clearText() {
-		var el = document.getElementById("pass");
+		var el = document.getElementById("numOfOtherMoney");
 		var oldValue = el.value + "";
 		el.value = oldValue.substring(0, oldValue.length - 1);
 	}
 </script>
+
+<script>
+    var max_time = 6;
+    var cinterval;
+     
+    function countdown_timer(){
+    	// decrease timer
+    	max_time--;
+    	//document.getElementById('seconds').innerHTML = max_time;
+    	if(max_time == 0){
+	    	clearInterval(cinterval);
+	    	var URL = location.href;
+			var targetURL = URL.substring(0, URL.lastIndexOf("/") + 1);
+			// open login page.
+			window.location = targetURL + "home";
+    	}
+    }
+    // 1,000 means 1 second.
+    cinterval = setInterval('countdown_timer()', 1000);
+</script>
+
+<style type="text/css">
+	#screen #content #functionRight {
+	width: 40%;
+	height: 100%;
+	float: right;
+	clear: none;
+	margin-top: -25px;
+}
+</style>
+
 <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -26,10 +57,6 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-<script src="<c:url value="/resources/js/SubmitAmountMoney.js" />"
-	type="text/javascript"></script>	
-
 <title>Withdraw Money</title>
 </head>
 <body>
@@ -37,25 +64,15 @@
 		<div id="center" class="panel panel-default">
 			<div id="left">
 				<div id="leftContent">
-					<!-- <form method="post" action="submitAmountMoney"> -->
-						<button type="button" class="functionButton" 
-							onclick="sendAmountRecommended(this.value)" value="500000">
-							<img src="resources/imgs/arrow.png">
-						</button>
-						<input type="hidden" value="500000" name="amountMoney">
-					<!-- </form> -->
-					<form method="post" action="submitAmountMoney">
-						<button type="submit" class="functionButton">
-							<img src="resources/imgs/arrow.png">
-						</button>
-						<input type="hidden" value="2000000" name="amountMoney">
-					</form>
-					<form method="post" action="submitAmountMoney">
-						<button type="submit" class="functionButton">
-							<img src="resources/imgs/arrow.png">
-						</button>
-						<input type="hidden" value="3000000" name="amountMoney">
-					</form>
+					<button type="button" class="functionButton">
+						<img src="resources/imgs/arrow.png">
+					</button>
+					<button type="button" class="functionButton">
+						<img src="resources/imgs/arrow.png">
+					</button>
+					<button type="button" class="functionButton">
+						<img src="resources/imgs/arrow.png">
+					</button>
 				</div>
 			</div>
 <!-- Begin Screen -->
@@ -66,38 +83,30 @@
 					</div>
 					<div id=message>
 						<p>TP Bank ATM</p>
-						<p id="advise">Please select a transaction</p>
+						<!-- <p id="advise">Please select a transaction</p> -->
 					</div>
 				</div>
 				<div id=content>
-					<div id=functionLeft> 
-						<label class="labelLeft">500.000</label>
-						<label class="labelLeft">2.000.000</label> 
-						<label class="labelLeft">3.000.000</label>
+					<div id=functionCenter>
+						<label class="labelCenter">${msg} </label>
 					</div>
 					<div id=functionRight>
-						<label class="labelRight">1.000.000</label> 
-						<label class="labelRight">2.500.000</label> 
-						<label class="labelRight">Enter other</label>
+						<!-- <label class="labelRight"></label> --> 
+						<!-- <label class="labelRight">OK</label> 
+						<label class="labelRight">Cancel</label> -->
 					</div>
 				</div>
 			</div> 
 <!-- End Screen -->
 			<div id="right">
 				<div id="rightContent">
-					<form method="post" action="submitAmountMoney">
-						<button type="submit" class="functionButton">
-							<img src="resources/imgs/arrow2.png">
-						</button>
-						<input type="hidden" value="1000000" name="amountMoney">
-					</form>
-					<form method="post" action="submitAmountMoney">
-						<button type="submit" class="functionButton">
-							<img src="resources/imgs/arrow2.png">
-						</button>
-						<input type="hidden" value="2500000" name="amountMoney">
-					</form>
-					<button type="button" class="functionButton" onclick="window.location.href='otherValue'">
+					<button type="button" class="functionButton">
+						<img src="resources/imgs/arrow2.png">
+					</button>
+					<button type="button" class="functionButton">
+						<img src="resources/imgs/arrow2.png">
+					</button>
+					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 				</div>
@@ -162,7 +171,7 @@
 								<button type="button" class="btn btn-primary">&nbsp</button>
 							</td>
 							<td>
-								<button type="button" class="btn btn-primary" value="0">0</button>
+								<button type="button" class="btn btn-primary" value="0" onclick="keyType(this)">0</button>
 							</td>
 							<td>
 								<button type="button" class="btn btn-primary">&nbsp</button>
@@ -171,31 +180,6 @@
 						</tr>
 					</table>
 				</div>
-				<!-- <div id="cardBoard">
-					<div id="cardPick">
-						<div id="pickPanel" class="panel panel-default">
-							<button type="button" class="btn btn-primary">
-								<img alt="" src="resources/imgs/card.png">Card 1
-							</button>
-							<button type="button" class="btn btn-primary">
-								<img alt="" src="resources/imgs/card.png">Card 2
-							</button>
-							<button type="button" class="btn btn-success">
-								<img src="resources/imgs/pick.png">Pick
-							</button>
-
-						</div>
-					</div>
-					<div id="cardInsert">
-						<div id="insertPanel" class="panel panel-default">
-							<label><img alt="" src="resources/imgs/cardIn.png"></label>
-							<button type="button" class="btn btn-warning">
-								<img alt="" src="resources/imgs/insert.png"> Insert card
-							</button>
-
-						</div>
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</div>
