@@ -34,8 +34,8 @@ public class UserController {
 	@RequestMapping(value = "/loginprocess", method = RequestMethod.POST)
 	public String auth(@RequestParam(value = "pin") String pin, ModelMap map) {
 		String forward = "";
-		Card card = (Card) map.get("card");
-		if (card != null) {
+		Card card = null;
+		if ((card = (Card) map.get("card")) != null) {
 			forward = "redirect:/welcome";
 			int attempt = card.getAttempt();
 
