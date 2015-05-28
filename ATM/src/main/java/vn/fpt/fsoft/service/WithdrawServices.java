@@ -67,6 +67,11 @@ public class WithdrawServices {
 		}
 		
 		if(tempAmount == amount){ //If ATM has enough money
+			
+			//change balance of account
+			
+			//change remaining money(cash) in ATM
+			
 			return output;
 		}
 

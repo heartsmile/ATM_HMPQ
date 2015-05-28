@@ -30,7 +30,7 @@
 	    	var URL = location.href;
 			var targetURL = URL.substring(0, URL.lastIndexOf("/") + 1);
 			// open login page.
-			window.location = targetURL + "home";
+			window.location = targetURL + "ejectCard";
     	}
     }
     // 1,000 means 1 second.

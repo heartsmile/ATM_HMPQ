@@ -37,25 +37,21 @@
 		<div id="center" class="panel panel-default">
 			<div id="left">
 				<div id="leftContent">
-					<!-- <form method="post" action="submitAmountMoney"> -->
 						<button type="button" class="functionButton" 
 							onclick="sendAmountRecommended(this.value)" value="500000">
 							<img src="resources/imgs/arrow.png">
 						</button>
-						<input type="hidden" value="500000" name="amountMoney">
-					<!-- </form> -->
-					<form method="post" action="submitAmountMoney">
-						<button type="submit" class="functionButton">
+						
+						<button type="submit" class="functionButton"
+							onclick="sendAmountRecommended(this.value)" value="2000000">
 							<img src="resources/imgs/arrow.png">
 						</button>
-						<input type="hidden" value="2000000" name="amountMoney">
-					</form>
-					<form method="post" action="submitAmountMoney">
-						<button type="submit" class="functionButton">
+						
+						<button type="submit" class="functionButton"
+							onclick="sendAmountRecommended(this.value)" value="3000000">
 							<img src="resources/imgs/arrow.png">
 						</button>
-						<input type="hidden" value="3000000" name="amountMoney">
-					</form>
+						
 				</div>
 			</div>
 <!-- Begin Screen -->
@@ -85,21 +81,19 @@
 <!-- End Screen -->
 			<div id="right">
 				<div id="rightContent">
-					<form method="post" action="submitAmountMoney">
-						<button type="submit" class="functionButton">
+						<button type="submit" class="functionButton"
+							onclick="sendAmountRecommended(this.value)" value="1000000">
 							<img src="resources/imgs/arrow2.png">
 						</button>
-						<input type="hidden" value="1000000" name="amountMoney">
-					</form>
-					<form method="post" action="submitAmountMoney">
-						<button type="submit" class="functionButton">
+					
+						<button type="submit" class="functionButton"
+							onclick="sendAmountRecommended(this.value)" value="2500000">
 							<img src="resources/imgs/arrow2.png">
 						</button>
-						<input type="hidden" value="2500000" name="amountMoney">
-					</form>
-					<button type="button" class="functionButton" onclick="window.location.href='otherValue'">
+											
+						<button type="button" class="functionButton" onclick="window.location.href='otherValue'">
 						<img src="resources/imgs/arrow2.png">
-					</button>
+						</button>
 				</div>
 			</div>
 		</div>
