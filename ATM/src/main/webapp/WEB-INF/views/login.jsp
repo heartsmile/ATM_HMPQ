@@ -86,8 +86,8 @@
 				<div id=content>
 				<div id="insertpin">
 					<center>
-						<h1>Enter your PIN</h1>
 						<c:if test="${empty attempt or attempt < 3}">
+						<h1>Enter your PIN</h1>
 								<table>
 									<tr>
 										<td>PIN</td>

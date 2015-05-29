@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -27,31 +28,30 @@ public class AutheticateTest{
 	private CardReader cardReader;
 	@Autowired
 	private Card card;
-	public int attempt = 1;
+	public int attempt;
 
 	@Before
 	public void setUp(){
 		card.setCardNo("123465");
 		card.setPIN("131356");
 		cardReader.setCard(card);
-		attempt = card.getAttempt();
 	}
 	
 	@Test
 	public void firstAttemptTest(){
-		
+		attempt = 1;
 		assertFalse(userService.auth(cardReader, card, attempt));
 	}
 	
 	@Test
 	public void secondAttemptTest(){
-		
+		attempt = 2;
 		assertFalse(userService.auth(cardReader, card, attempt));
 	}
 	
 	@Test
 	public void thirdAttemptTest(){
-		
+		attempt = 3;
 		assertFalse(userService.auth(cardReader, card, attempt));
 	}
 	

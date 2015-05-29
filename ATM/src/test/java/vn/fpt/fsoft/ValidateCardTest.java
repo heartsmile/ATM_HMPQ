@@ -24,7 +24,7 @@ public class ValidateCardTest {
 	private Card card;
 
 	public static final String CARDNO_ACCEPT_BUT_NOTEXIST_DATABASE = "1234555";
-	public static final String CARDNO_ACCEPT_EXIST_DATABASE = "1234567";
+	public static final String CARDNO_ACCEPT_EXIST_DATABASE = "123465";
 	
 	@Test
 	public void testValidateCardNotExistsDatabase(){
