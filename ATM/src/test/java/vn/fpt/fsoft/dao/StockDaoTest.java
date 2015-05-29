@@ -72,7 +72,8 @@ public class StockDaoTest {
 	 */
 	@Test
 	public void testGetMoneyListTC01() {
-		
+		List<vn.fpt.fsoft.entity.Money> listMoney = stockDao.getMoneyList();
+		assertTrue(listMoney.size() > 0);
 	}
 
 	/**

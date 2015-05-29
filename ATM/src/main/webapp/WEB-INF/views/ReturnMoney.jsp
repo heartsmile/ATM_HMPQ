@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="func" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -84,8 +84,13 @@
 							<c:if test="${not empty listMoney }">
 									<c:forEach var="money" items="${listMoney }">
 										<tr>
-											<td>${money.value }</td>
-											<td>${money.quantity }</td>
+											<td>
+												<fmt:formatNumber maxFractionDigits="3" 
+													currencySymbol="" value="${money.value }" type="currency"/> VND
+											</td>
+											<td>
+												${money.quantity }
+											</td>
 										</tr>
 									</c:forEach>
 							</c:if>
