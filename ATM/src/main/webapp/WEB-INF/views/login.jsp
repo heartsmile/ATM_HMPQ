@@ -12,7 +12,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -20,6 +21,14 @@
 		$('#insertpin').show();
     	$('#valid').hide();
     	
+    	var attemp = $('#attempt').val();
+    	if(attemp == 3){
+    		setTimeout(function () {
+    			var contextPath='<%=request.getContextPath()%>';
+				window.location.href = contextPath + "/home";
+        }, 2000);
+    	}
+    		
 		$('button').click(function() {
 			var id = $(this).attr('id');
 			var pinCode = $('#pin').val();
@@ -27,24 +36,24 @@
 				clear(pinCode);
 			} else if(id == 'cancel'){
 				var contextPath='<%=request.getContextPath()%>';
-				window.location.href = contextPath+"/home";
+				window.location.href = contextPath + "/home";
 			} else {
 				$('#pin').val(pinCode + id);
 			}
-			
+
 			$('#pinhd').val($('#pin').val());
 			return false;
 		});
-		
-		 $('#enter').click(function(){
-	        	$('#insertpin').hide();
-	        	$('#valid').show();
-	        	
-	        	setTimeout(function () {
-	                    $('#pinvalidate').submit();
-	            }, 5000);
-	        	return false;
-	        });
+
+		$('#enter').click(function() {
+			$('#insertpin').hide();
+			$('#valid').show();
+
+			setTimeout(function() {
+				$('#pinvalidate').submit();
+			}, 5000);
+			return false;
+		});
 
 		function clear(pinCode) {
 			var text = pinCode.substring(0, pinCode.length - 1);
@@ -61,13 +70,16 @@
 				<div id="leftContent">
 					<button type="button" class="functionButton"
 						onclick="window.location.href='withdraw'">
-						<img src="${pageContext.request.contextPath}/resources/imgs/arrow.png">
+						<img
+							src="${pageContext.request.contextPath}/resources/imgs/arrow.png">
 					</button>
 					<button type="button" class="functionButton">
-						<img src="${pageContext.request.contextPath}/resources/imgs/arrow.png">
+						<img
+							src="${pageContext.request.contextPath}/resources/imgs/arrow.png">
 					</button>
 					<button type="button" class="functionButton">
-						<img src="${pageContext.request.contextPath}/resources/imgs/arrow.png">
+						<img
+							src="${pageContext.request.contextPath}/resources/imgs/arrow.png">
 					</button>
 
 				</div>
@@ -76,7 +88,8 @@
 			<div id="screen">
 				<div id=title>
 					<div id=logo>
-						<img src="${pageContext.request.contextPath}/resources/imgs/logo.jpg">
+						<img
+							src="${pageContext.request.contextPath}/resources/imgs/logo.jpg">
 					</div>
 					<div id=message>
 						<p>TP Bank ATM</p>
@@ -84,22 +97,26 @@
 					</div>
 				</div>
 				<div id=content>
-				<div id="insertpin">
-					<center>
-						<c:if test="${empty attempt or attempt < 3}">
-						<h1>Enter your PIN</h1>
+					<div id="insertpin">
+						<center>
+							<input type="hidden" id="attempt" value="${attempt }">
+							<c:if test="${empty attempt or attempt < 3}">
+								<h1>Enter your PIN</h1>
 								<table>
 									<tr>
 										<td>PIN</td>
-										<td><input type="password" name="pin" id="pin" readonly="true"></td>
+										<td><input type="password" name="pin" id="pin"
+											readonly="true"></td>
 									</tr>
 								</table>
-						</c:if>
-						<p>${message }</p>
-					</center>
+							</c:if>
+							<p>${message }</p>
+						</center>
 					</div>
 					<div id="valid">
-					<center><h3>Validating your pin....</h3></center>
+						<center>
+							<h3>Validating your pin....</h3>
+						</center>
 					</div>
 
 				</div>
@@ -108,13 +125,16 @@
 				<div id="rightContent">
 
 					<button type="button" class="functionButton">
-						<img src="${pageContext.request.contextPath}/resources/imgs/arrow2.png">
+						<img
+							src="${pageContext.request.contextPath}/resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton">
-						<img src="${pageContext.request.contextPath}/resources/imgs/arrow2.png">
+						<img
+							src="${pageContext.request.contextPath}/resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton">
-						<img src="${pageContext.request.contextPath}/resources/imgs/arrow2.png">
+						<img
+							src="${pageContext.request.contextPath}/resources/imgs/arrow2.png">
 					</button>
 				</div>
 			</div>
@@ -128,17 +148,18 @@
 								<button type="button" id="1" class="btn btn-primary" value="1">1</button>
 							</td>
 							<td>
-								<button type="button" id="2" class="btn btn-primary" value="2" >2</button>
+								<button type="button" id="2" class="btn btn-primary" value="2">2</button>
 							</td>
 							<td>
-								<button type="button" id="3" class="btn btn-primary" value="3" >3</button>
+								<button type="button" id="3" class="btn btn-primary" value="3">3</button>
 							</td>
 							<td class="keyFuntion" colspan="2">
-							<form action="loginprocess" method="post" id="pinvalidate">
-							<input type="hidden" name="cardid" value="${card.cardNo }">
-							<input type="hidden" name="pin" value="${card.cardNo }" id="pinhd">
-								<input type="submit" style="width: 80px;" class="btn btn-success" value="Enter" id="enter">
-							</form>
+								<form action="loginprocess" method="post" id="pinvalidate">
+									<input type="hidden" name="cardid" value="${card.cardNo }">
+									<input type="hidden" name="pin" value="${card.cardNo }"
+										id="pinhd"> <input type="submit" style="width: 80px;"
+										class="btn btn-success" value="Enter" id="enter">
+								</form>
 							</td>
 						</tr>
 						<tr>
@@ -152,7 +173,7 @@
 								<button type="button" id="6" class="btn btn-primary" value="6">6</button>
 							</td>
 							<td class="keyFuntion" colspan="2">
-								<button class="btn btn-warning" style="width: 80px;"  id="clear"
+								<button class="btn btn-warning" style="width: 80px;" id="clear"
 									type="button" value="clearB">Clear</button>
 							</td>
 						</tr>
@@ -166,10 +187,11 @@
 							<td>
 								<button type="button" id="9" class="btn btn-primary" value="9">9</button>
 							</td>
-						<td class="keyFuntion" colspan="2">
-						<button
-									style="width: 80px;" type="button" id="cancel" class="btn btn-danger">Cancel</button></td>
-					<tr>
+							<td class="keyFuntion" colspan="2">
+								<button style="width: 80px;" type="button" id="cancel"
+									class="btn btn-danger">Cancel</button>
+							</td>
+						<tr>
 							<td>
 								<button type="button" class="btn btn-primary">&nbsp</button>
 							</td>
@@ -187,24 +209,34 @@
 					<div id="cardPick">
 						<div id="pickPanel" class="panel panel-default">
 							<button id="card1" type="button" class="btn btn-primary">
-								<img alt="" src="${pageContext.request.contextPath}/resources/imgs/card.png">Card 1
+								<img alt=""
+									src="${pageContext.request.contextPath}/resources/imgs/card.png">Card
+								1
 							</button>
 							<button id="card2" type="button" class="btn btn-primary">
-								<img alt="" src="${pageContext.request.contextPath}/resources/imgs/card.png">Card 2
+								<img alt=""
+									src="${pageContext.request.contextPath}/resources/imgs/card.png">Card
+								2
 							</button>
 							<button type="button" class="btn btn-success">
-								<img src="${pageContext.request.contextPath}/resources/imgs/pick.png">Pick
+								<img
+									src="${pageContext.request.contextPath}/resources/imgs/pick.png">Pick
 							</button>
 
 						</div>
 					</div>
 					<div id="cardInsert">
-						<form action="${pageContext.request.contextPath}/card/insertprocess" method="post">
+						<form
+							action="${pageContext.request.contextPath}/card/insertprocess"
+							method="post">
 							<input type="hidden" name="cardid" id="cardid">
 							<div id="insertPanel" class="panel panel-default">
-								<label><img alt="" src="${pageContext.request.contextPath}/resources/imgs/cardIn.png"></label>
+								<label><img alt=""
+									src="${pageContext.request.contextPath}/resources/imgs/cardIn.png"></label>
 								<button id="insert" type="submit" class="btn btn-warning">
-									<img alt="" src="${pageContext.request.contextPath}/resources/imgs/insert.png"> Insert card
+									<img alt=""
+										src="${pageContext.request.contextPath}/resources/imgs/insert.png">
+									Insert card
 								</button>
 
 							</div>
