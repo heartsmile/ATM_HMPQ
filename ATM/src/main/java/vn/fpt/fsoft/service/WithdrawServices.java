@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import vn.fpt.fsoft.dao.StockDao;
-import vn.fpt.fsoft.dao.WithdrawDao;
 import vn.fpt.fsoft.model.Money;
 
 /**
@@ -28,7 +27,7 @@ public class WithdrawServices {
 	private StockDao stDao;
 	
 	@Autowired
-	private WithdrawDao withdrawDao;
+	private WithdrawalDao withdrawDao;
 	
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -48,6 +47,7 @@ public class WithdrawServices {
 
 				// sheet : number of money sheet
 				int sheets = (res - tmpRest) / m.getValue();
+				if (sheets > 0) {
 				if (m.getQuantity() >= sheets) {
 					res = tmpRest;
 					moneyModel = new Money();
@@ -55,7 +55,6 @@ public class WithdrawServices {
 					moneyModel.setValue(m.getValue());
 					output.add(moneyModel);
 				} else {
-					if (m.getQuantity() > 0) {
 						sheets = m.getQuantity();
 						res = res - m.getValue() * sheets;
 						moneyModel = new Money();
