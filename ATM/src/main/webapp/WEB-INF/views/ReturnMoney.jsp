@@ -6,7 +6,7 @@
 <html>
 <head>
 <script>
-	var max_time = 6;
+	var max_time = 4;
 	var cinterval;
 
 	function countdown_timer() {

@@ -4,6 +4,7 @@
 package vn.fpt.fsoft.controller;
 
 import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.context.request.WebRequest;
+
 import vn.fpt.fsoft.constant.Constant;
 import vn.fpt.fsoft.model.Card;
 import vn.fpt.fsoft.model.Money;
@@ -25,9 +29,9 @@ import vn.fpt.fsoft.service.WithdrawServices;
 @Controller
 @SessionAttributes({ "card", "msg", "listMoney", "receiptRequire" })
 public class WithdrawalController {
-		
+
 	final static Logger logger = Logger.getLogger(WithdrawalController.class);
-	
+
 	@Autowired
 	private WithdrawServices withdrawService;
 
@@ -61,9 +65,9 @@ public class WithdrawalController {
 			// Invalid amount of money
 			modelMap.addAttribute("msg", Constant.INVALID_AMOUNT);
 			jsonResult = "{\"result\": \"error\",\"message\": \"...\"}";
-			
+
 			logger.info(Constant.INVALID_AMOUNT);
-			
+
 			return jsonResult;
 		} else {
 			moneyAmount = Integer.parseInt(amountMoney);
@@ -74,7 +78,7 @@ public class WithdrawalController {
 				&& moneyAmount <= 10000000) { // If valid amount of money
 
 			logger.info("Validate amount of money success!");
-			
+
 			// check balance
 			blController.checkBalance(modelMap);
 			float balance = (Float) modelMap.get("balance");
@@ -92,9 +96,9 @@ public class WithdrawalController {
 					// ATM doesn't have enough money
 					modelMap.addAttribute("msg", Constant.ATM_NOT_SERVICE);
 					jsonResult = "{\"result\": \"error\",\"message\": \"...\"}";
-					
+
 					logger.info("ATM don't have enough money.");
-					
+
 					return jsonResult;
 				}
 
@@ -104,19 +108,19 @@ public class WithdrawalController {
 				if (withdrawService.changeAcountBalance(accountNo,
 						remainingBalance)) {
 					logger.info("Charge money successful!");
-					
+
 					// put list Money to modelMap and it will be get in JSP page
 					// (receive money)
 					modelMap.put("listMoney", listMoney);
 					jsonResult = "{\"result\": \"success\",\"message\": \"Withdraw success\"}";
-					
-					logger.info("Withdraw successful!");					
+
+					logger.info("Withdraw successful!");
 				} else {
 
 					// charge account balance fail
 					modelMap.addAttribute("msg", Constant.ATM_NOT_SERVICE);
 					jsonResult = "{\"result\": \"error\",\"message\": \"...\"}";
-					
+
 					logger.info("Charge account balance fail");
 					return jsonResult;
 				}
@@ -126,7 +130,7 @@ public class WithdrawalController {
 				// Not enough balance
 				modelMap.addAttribute("msg", Constant.NOT_ENOUGH_MONEY);
 				jsonResult = "{\"result\": \"error\",\"message\": \"...\"}";
-				
+
 				logger.info("User doesn't have enough balance.");
 			}
 
@@ -135,7 +139,7 @@ public class WithdrawalController {
 			// Invalid amount of money
 			modelMap.addAttribute("msg", Constant.INVALID_AMOUNT);
 			jsonResult = "{\"result\": \"error\",\"message\": \"...\"}";
-			
+
 			logger.info("Invalid amount of money.");
 		}
 
@@ -153,7 +157,7 @@ public class WithdrawalController {
 	}
 
 	@RequestMapping("/ejectCardDone")
-	public String ejectCardDone(ModelMap modelMap) {
+	public String ejectCardDone(ModelMap modelMap, WebRequest request, SessionStatus status) {
 
 		// check if have money if session
 		@SuppressWarnings("unchecked")
@@ -164,10 +168,11 @@ public class WithdrawalController {
 
 		// for print check balance receipt
 		// check if receipt require in session
-		String ssReceiptRequire = (String) modelMap.get("receiptRequire");
-		if (ssReceiptRequire != null) {
-			boolean receiptRequire = Boolean.parseBoolean(ssReceiptRequire);
+		if (modelMap.containsKey("receiptRequire")) {
+			boolean receiptRequire = (Boolean) modelMap.get("receiptRequire");
 			if (receiptRequire) {
+				status.setComplete();
+			    request.removeAttribute("receiptRequire", WebRequest.SCOPE_SESSION);
 				return "PrintReceipt";
 			}
 		}
@@ -202,12 +207,19 @@ public class WithdrawalController {
 	}
 
 	@RequestMapping("/returnMoneyDone")
-	public String returnMoney(ModelMap modelMap) {
+	public String returnMoney(ModelMap modelMap, WebRequest request, SessionStatus status) {
+
+		// delete listMoney from session
+		if (modelMap.containsKey("listMoney")) {
+			modelMap.remove("listMoney");
+		}
 
 		// check if receipt require in session
 		if (modelMap.containsKey("receiptRequire")) {
 			boolean receiptRequire = (Boolean) modelMap.get("receiptRequire");
 			if (receiptRequire) {
+				status.setComplete();
+			    request.removeAttribute("receiptRequire", WebRequest.SCOPE_SESSION);
 				return "PrintReceipt";
 			}
 		}

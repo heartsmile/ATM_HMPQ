@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Account {
 	private int accountID;
-	private float balance;
+	private Float balance;
 	private Customer customer;
 
 	public int getAccountID() {

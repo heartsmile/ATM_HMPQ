@@ -50,7 +50,7 @@
 </head>
 <body>
 
-    <div id="main">
+    <div id="main" class="panel panel-default" >
         <div id="center" class="panel panel-default">
             <div id="left">
                 <div id="leftContent">

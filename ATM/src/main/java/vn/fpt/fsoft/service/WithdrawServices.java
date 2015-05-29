@@ -79,6 +79,7 @@ public class WithdrawServices {
 		if (tempAmount == amount) { // If ATM has enough money
 			
 			logger.info("ATM has enough cash.");
+			
 			// change remaining money(cash) in ATM
 			stDao.upDateCash(output, 1);
 			return output;

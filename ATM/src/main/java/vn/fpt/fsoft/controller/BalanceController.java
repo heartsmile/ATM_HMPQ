@@ -20,8 +20,8 @@ public class BalanceController {
 	@RequestMapping("/checkbalance")
 	public String checkBalance(ModelMap modelMap){
 		Card card = (Card) modelMap.get("card");
-		float balance = userService.getAccount(card).getBalance();
-		modelMap.addAttribute("balance", balance);
+		Float balance = userService.getAccount(card).getBalance();
+		modelMap.addAttribute("balance", balance.intValue());
 		return "checkbalance";
 	}
 	

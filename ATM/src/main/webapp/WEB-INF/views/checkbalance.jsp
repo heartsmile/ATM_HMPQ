@@ -72,8 +72,8 @@
 						<label class="labelCenter">Do you want to print receipt?</label>
 					</div>
 					<div id=functionRight>
-						<label class="labelRight">OK</label>
-						<label class="labelRight">Cancel</label>
+						<label class="labelRight">Yes</label>
+						<label class="labelRight">No</label>
 					</div>
 				</div>
 			</div>
@@ -84,7 +84,7 @@
 						<img src="resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton"
-						onclick="window.location.href='printReceipt'">
+						onclick="window.location.href='addReceiptRequire'">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton"
