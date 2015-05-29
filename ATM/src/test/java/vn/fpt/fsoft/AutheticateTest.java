@@ -8,17 +8,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
-import org.springframework.transaction.annotation.Transactional;
 
 import vn.fpt.fsoft.model.Card;
 import vn.fpt.fsoft.model.CardReader;
 import vn.fpt.fsoft.service.UserService;
 
+@TransactionConfiguration(defaultRollback = true)
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:root-context.xml","classpath:servlet-context.xml"})
 public class AutheticateTest{
@@ -66,7 +64,5 @@ public class AutheticateTest{
 		
 		assertTrue(userService.auth(cardReader, card, attempt));
 	}
-	
-	
 	
 }

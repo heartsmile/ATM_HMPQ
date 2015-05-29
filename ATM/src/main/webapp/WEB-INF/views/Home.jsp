@@ -16,6 +16,9 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
+    	$('#welcome').show();
+    	$('#check').hide();
+    	
         $('#card1').click(function() {
             $('#cardid').val('123456');
             return false;
@@ -25,10 +28,24 @@
             $('#cardid').val('1235');
             return false;
         });
+        
+        $('#insert').click(function(){
+        	$('#welcome').hide();
+        	$('#messages').hide();
+        	$('#check').show();
+        	
+        	setTimeout(function () {
+                    $('#vaidateform').submit();
+            }, 5000);
+        	return false;
+        });
+        
+
     });
 </script>
 </head>
 <body>
+ 
     <div id="main">
         <div id="center" class="panel panel-default">
             <div id="left">
@@ -59,9 +76,15 @@
                 </div>
                 <div id=content>
                     <div id=functionCenter>
-                        <label id="welcome">WELCOME TO TP BANK</label>
-                        
+                    <div id = "welcome">
+                        <b>WELCOME TO TP BANK</b>
+                     </div>
+                     <div id = "check">
+                        <label id="welcome">Validateting your ATM card...</label>
+                     </div>
+                     <div id="messages">
                         <h2>${message }</h2>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -165,7 +188,7 @@
                         </div>
                     </div>
                     <div id="cardInsert">
-                        <form action="${pageContext.request.contextPath}/card/insertprocess" method="post">
+                        <form action="${pageContext.request.contextPath}/card/insertprocess" method="post" id ="vaidateform">
                             <input type="hidden" name="cardid" id="cardid">
                             <div id="insertPanel" class="panel panel-default">
                                 <label><img alt="" src="${pageContext.request.contextPath}/resources/imgs/cardIn.png"></label>

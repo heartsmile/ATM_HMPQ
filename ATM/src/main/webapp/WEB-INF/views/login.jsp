@@ -17,6 +17,9 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
+		$('#insertpin').show();
+    	$('#valid').hide();
+    	
 		$('button').click(function() {
 			var id = $(this).attr('id');
 			var pinCode = $('#pin').val();
@@ -32,6 +35,16 @@
 			$('#pinhd').val($('#pin').val());
 			return false;
 		});
+		
+		 $('#enter').click(function(){
+	        	$('#insertpin').hide();
+	        	$('#valid').show();
+	        	
+	        	setTimeout(function () {
+	                    $('#pinvalidate').submit();
+	            }, 5000);
+	        	return false;
+	        });
 
 		function clear(pinCode) {
 			var text = pinCode.substring(0, pinCode.length - 1);
@@ -71,6 +84,7 @@
 					</div>
 				</div>
 				<div id=content>
+				<div id="insertpin">
 					<center>
 						<h1>Enter your PIN</h1>
 						<c:if test="${empty attempt or attempt < 3}">
@@ -83,6 +97,10 @@
 						</c:if>
 						<p>${message }</p>
 					</center>
+					</div>
+					<div id="valid">
+					<center><h3>Validating your pin....</h3></center>
+					</div>
 
 				</div>
 			</div>
@@ -116,10 +134,10 @@
 								<button type="button" id="3" class="btn btn-primary" value="3" >3</button>
 							</td>
 							<td class="keyFuntion" colspan="2">
-							<form action="loginprocess" method="post">
+							<form action="loginprocess" method="post" id="pinvalidate">
 							<input type="hidden" name="cardid" value="${card.cardNo }">
 							<input type="hidden" name="pin" value="${card.cardNo }" id="pinhd">
-								<input type="submit" style="width: 80px;" class="btn btn-success" value="Enter">
+								<input type="submit" style="width: 80px;" class="btn btn-success" value="Enter" id="enter">
 							</form>
 							</td>
 						</tr>
