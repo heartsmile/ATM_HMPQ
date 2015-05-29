@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,7 +16,7 @@
 	    	var URL = location.href;
 			var targetURL = URL.substring(0, URL.lastIndexOf("/") + 1);
 			// open login page.
-			window.location = targetURL + "welcome";
+			window.location = targetURL + "ejectCard";
     	}
     }
     // 1,000 means 1 second.
@@ -43,7 +42,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<title>Withdraw Money</title>
+<title>Transaction Process</title>
 </head>
 <body>
 	<div id="main">
@@ -74,7 +73,7 @@
 				</div>
 				<div id=content>
 					<div id=functionCenter>
-						<label class="labelCenter" id="welcome">${msg} </label>
+						<label class="labelCenter" id="welcome">Processing Transaction...</label>
 					</div>
 					<div id=functionRight>
 						<!-- <label class="labelRight"></label> --> 

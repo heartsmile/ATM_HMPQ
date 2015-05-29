@@ -10,7 +10,7 @@ public interface Constant {
 	//QUANTA5
 	String NOT_ENOUGH_MONEY = "Your current balance not enough, please try again!";
 	String INVALID_AMOUNT = "Invalid amount of money, please try again!";
-	String ATM_NOT_SERVICE = "Sorry, ATM is temporary stop service, please try again later!";
+	String ATM_NOT_SERVICE = "Sorry, ATM is out of service, please try again later!";
 	
 	String NOT_PRINT_RECEIPT = "Please receive your card!";
 	String PRINT_RECEIPT = "Printing receipt... Please receive your card and receipt!";

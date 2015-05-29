@@ -23,8 +23,9 @@
 	height: 100%;
 	float: right;
 	clear: none;
-	margin-top: -25px;
 }
+	
+
 </style>
 
 <link rel="stylesheet" type="text/css" href="resources/css/style.css">
@@ -67,7 +68,7 @@
 				</div>
 				<div id=content>
 					<div id=functionCenter>
-						<label class="labelCenter">Do you want print receipt?</label>
+						<label class="labelCenter" id="welcome">Do you want print receipt?</label>
 					</div>
 					<div id=functionRight>
 						<!-- <label class="labelRight"></label> --> 
@@ -82,10 +83,10 @@
 					<button type="button" class="functionButton">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='printReceipt'">
+					<button type="button" class="functionButton" onclick="window.location.href='addReceiptRequire'">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='ejectCard'">
+					<button type="button" class="functionButton" onclick="window.location.href='transactionProcess'">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 				</div>
@@ -110,7 +111,7 @@
 							</td>
 							<td class="keyFuntion" colspan="2">
 							<button	style="width: 80px;" type="button" class="btn btn-success"
-								onclick="window.location.href='printReceipt'">Enter</button>
+								onclick="window.location.href='addReceiptRequire'">Enter</button>
 							</td>
 						</tr>
 						<tr>
@@ -146,7 +147,7 @@
 							</td>
 							<td class="keyFuntion" colspan="2">
 							<button style="width: 80px;" type="button" class="btn btn-danger"
-								onclick="window.location.href='ejectCard'">Cancel</button>									
+								onclick="window.location.href='transactionProcess'">Cancel</button>									
 							</td>
 						</tr>
 						<tr>

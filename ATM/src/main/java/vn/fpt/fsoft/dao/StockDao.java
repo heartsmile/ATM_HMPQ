@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -50,24 +51,20 @@ public class StockDao {
 	}
 
 	public List<Money> getMoneyList() {
-		List<Money> output = new ArrayList<Money>();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		@SuppressWarnings("unchecked")
-		List<Object[]> results = session
-				.createSQLQuery("SELECT {m.*} FROM money M")
-				.addEntity("m", Money.class).list();
-		for (Object[] record : results) {
-			Money money = (Money) record[0];
-			output.add(money);
-		}
+		List<Money> output = session
+				.createCriteria(Money.class).list();
+		session.getTransaction().commit();
 		return output;
 	}
 
 	public void upDateCash(List<vn.fpt.fsoft.model.Money> comsumed, int atmID){
-		/*Session session = sessionFactory.getCurrentSession();
-		String sql = "update Stock s set s.quantity = s.quantity- :qual where s.moneyID = :moneyID and s.atmid ="+ atmID;
 		List<Money> moneyList = getMoneyList();
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		String sql = "update Stock s set s.quantity = s.quantity- :qual where s.moneyID = :moneyID and s.atmid ="+ atmID;
 		for(vn.fpt.fsoft.model.Money m  : comsumed){
 			int moneyID=0;
 			for(Money money : moneyList){
@@ -75,11 +72,11 @@ public class StockDao {
 					moneyID = money.getMoneyID();
 				}
 			}
-			session.beginTransaction();
+			
 			session.createQuery(sql).setInteger("qual",m.getQuantity()).setInteger("moneyID", moneyID).executeUpdate();
-			session.getTransaction().commit();
-		}*/
-		
+			
+		}
+		session.getTransaction().commit();
 		
 	}
 }

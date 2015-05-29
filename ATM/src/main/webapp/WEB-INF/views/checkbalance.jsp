@@ -88,7 +88,7 @@
 						<img src="resources/imgs/arrow2.png">
 					</button>
 					<button type="button" class="functionButton"
-						onclick="window.location.href='welcome'">
+						onclick="window.location.href='ejectCard'">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 				</div>
@@ -148,7 +148,7 @@
 							</td>
 							<td class="keyFuntion" colspan="2"><button
 									style="width: 80px;" type="button" class="btn btn-danger" 
-									onclick="window.location.href='welcome'">Cancel</button></td>
+									onclick="window.location.href='ejectCard'">Cancel</button></td>
 						</tr>
 						<tr>
 							<td>

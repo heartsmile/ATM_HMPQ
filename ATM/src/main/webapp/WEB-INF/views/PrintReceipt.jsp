@@ -30,7 +30,7 @@
 	    	var URL = location.href;
 			var targetURL = URL.substring(0, URL.lastIndexOf("/") + 1);
 			// open login page.
-			window.location = targetURL + "ejectCard";
+			window.location = targetURL + "home";
     	}
     }
     // 1,000 means 1 second.
@@ -87,7 +87,7 @@
 				</div>
 				<div id=content>
 					<div id=functionCenter>
-						<label class="labelCenter" align="center">Please get your receipt!</label>
+						<label class="labelCenter" id="welcome">Please get your receipt!</label>
 					</div>
 					<div id=functionRight>
 						<!-- <label class="labelRight"></label> --> 

@@ -18,7 +18,7 @@
 
     	$('#welcome').show();
     	$('#check').hide();
-    	
+
         $('#card1').click(function() {
             $('#cardid').val('123456');
             return false;
@@ -28,30 +28,29 @@
             $('#cardid').val('1235');
             return false;
         });
-        
+
         $('#insert').click(function(){
         	$('#welcome').hide();
         	$('#messages').hide();
         	$('#check').show();
-        	
+
         	setTimeout(function () {
                     $('#vaidateform').submit();
             }, 5000);
         	return false;
         });
-        
+
 
     });
 </script>
 </head>
 <body>
- 
+
     <div id="main">
         <div id="center" class="panel panel-default">
             <div id="left">
                 <div id="leftContent">
-                    <button type="button" class="functionButton"
-                        onclick="window.location.href='withdraw'">
+                    <button type="button" class="functionButton">
                         <img src="${pageContext.request.contextPath}/resources/imgs/arrow.png">
                     </button>
                     <button type="button" class="functionButton">

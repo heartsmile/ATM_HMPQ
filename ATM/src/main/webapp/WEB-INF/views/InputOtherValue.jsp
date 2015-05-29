@@ -7,9 +7,11 @@
 <script type="text/javascript">
 	function keyType(id) {
 		var el = document.getElementById("numOfOtherMoney");
-		var num = id.value;
-		var oldValue = el.value;
-		el.value = oldValue + num + "";
+		if (el.value.length < 8) {
+			var num = id.value;
+			var oldValue = el.value;
+			el.value = oldValue + num + "";
+		}
 	}
 	function clearText() {
 		var el = document.getElementById("numOfOtherMoney");
@@ -19,7 +21,7 @@
 </script>
 
 <style type="text/css">
-	#screen #content #functionRight {
+#screen #content #functionRight {
 	width: 40%;
 	height: 100%;
 	float: right;
@@ -37,10 +39,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	
+
 <script src="<c:url value="/resources/js/SubmitAmountMoney.js" />"
 	type="text/javascript"></script>
-	
+
 <title>Withdraw Money</title>
 </head>
 <body>
@@ -59,8 +61,8 @@
 					</button>
 				</div>
 			</div>
-<!-- Begin Screen -->
-			 <div id="screen">
+			<!-- Begin Screen -->
+			<div id="screen">
 				<div id=title>
 					<div id=logo>
 						<img src="resources/imgs/logo.jpg">
@@ -72,18 +74,18 @@
 				</div>
 				<div id=content>
 					<div id=functionCenter class="input-group">
-						<label class="labelCenter">Enter your amount you want to withdraw below, number you
-						enter have to divisible to 50.000</label>
-						<input id="numOfOtherMoney" class="form-control" type="text" name="amountMoney">
+						<label class="labelCenter">Enter your amount you want to
+							withdraw below, number you enter have to divisible to 50.000</label> <input
+							id="numOfOtherMoney" class="form-control" type="text"
+							name="amountMoney">
 					</div>
 					<div id=functionRight>
-						<!-- <label class="labelRight"></label> --> 
-						<label class="labelRight">OK</label> 
-						<label class="labelRight">Cancel</label>
+						<!-- <label class="labelRight"></label> -->
+						<label class="labelRight">OK</label> <label class="labelRight">Cancel</label>
 					</div>
 				</div>
-			</div> 
-<!-- End Screen -->
+			</div>
+			<!-- End Screen -->
 			<div id="right">
 				<div id="rightContent">
 					<button type="button" class="functionButton">
@@ -92,7 +94,8 @@
 					<button type="button" class="functionButton" onclick="sendAmount()">
 						<img src="resources/imgs/arrow2.png">
 					</button>
-					<button type="button" class="functionButton" onclick="window.location.href='withdraw'">
+					<button type="button" class="functionButton"
+						onclick="window.location.href='withdraw'">
 						<img src="resources/imgs/arrow2.png">
 					</button>
 				</div>
@@ -159,7 +162,8 @@
 								<button type="button" class="btn btn-primary">&nbsp</button>
 							</td>
 							<td>
-								<button type="button" class="btn btn-primary" value="0" onclick="keyType(this)">0</button>
+								<button type="button" class="btn btn-primary" value="0"
+									onclick="keyType(this)">0</button>
 							</td>
 							<td>
 								<button type="button" class="btn btn-primary">&nbsp</button>
