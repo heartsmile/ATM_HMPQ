@@ -77,7 +77,7 @@
 						<label class="labelCenter">Enter your amount you want to
 							withdraw below, number you enter have to divisible to 50.000</label> <input
 							id="numOfOtherMoney" class="form-control" type="text"
-							name="amountMoney">
+							name="amountMoney" readonly="readonly">
 					</div>
 					<div id=functionRight>
 						<!-- <label class="labelRight"></label> -->
