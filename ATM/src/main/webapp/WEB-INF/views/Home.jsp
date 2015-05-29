@@ -16,6 +16,10 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
+    	setTimeout(function () {
+    		$('#messages').hide();
+    	}, 2000);
+    	
     	$('#welcome').show();
     	$('#check').hide();
 
@@ -76,13 +80,13 @@
                 <div id=content>
                     <div id=functionCenter>
                     <div id = "welcome">
-                        <b>WELCOME TO TP BANK</b>
+                        <center><b>WELCOME TO TP BANK</b></center>
                      </div>
                      <div id = "check">
                         <label id="welcome">Validateting your ATM card...</label>
                      </div>
                      <div id="messages">
-                        <h2>${message }</h2>
+                        <center><h4>${message }</h4></center>
                         </div>
                     </div>
                 </div>

@@ -91,7 +91,7 @@
 								<table>
 									<tr>
 										<td>PIN</td>
-										<td><input type="text" name="pin" id="pin" readonly="true"></td>
+										<td><input type="password" name="pin" id="pin" readonly="true"></td>
 									</tr>
 								</table>
 						</c:if>
