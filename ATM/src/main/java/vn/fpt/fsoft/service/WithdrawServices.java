@@ -25,10 +25,10 @@ public class WithdrawServices {
 
 	@Autowired
 	private StockDao stDao;
-	
+
 	@Autowired
 	private WithdrawalDao withdrawDao;
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -48,35 +48,32 @@ public class WithdrawServices {
 				// sheet : number of money sheet
 				int sheets = (res - tmpRest) / m.getValue();
 				if (sheets > 0) {
-				if (m.getQuantity() >= sheets) {
-					res = tmpRest;
-					moneyModel = new Money();
-					moneyModel.setQuantity(sheets);
-					moneyModel.setValue(m.getValue());
-					output.add(moneyModel);
-				} else {
+					if (m.getQuantity() >= sheets) {
+						res = tmpRest;
+					} else {
 						sheets = m.getQuantity();
 						res = res - m.getValue() * sheets;
-						moneyModel = new Money();
-						moneyModel.setQuantity(sheets);
-						moneyModel.setValue(m.getValue());
-						output.add(moneyModel);
 					}
 				}
+				moneyModel = new Money();
+				moneyModel.setQuantity(sheets);
+				moneyModel.setValue(m.getValue());
+				output.add(moneyModel);
+
 			} else {
 				break;
 			}
 		}
-		
-		//count to check if ATM has enough money
+
+		// count to check if ATM has enough money
 		int tempAmount = 0;
-		for(Money m : output){
+		for (Money m : output) {
 			tempAmount += m.getValue() * m.getQuantity();
 		}
-		
-		if(tempAmount == amount){ //If ATM has enough money
 
-			//change remaining money(cash) in ATM
+		if (tempAmount == amount) { // If ATM has enough money
+
+			// change remaining money(cash) in ATM
 			stDao.upDateCash(output, 1);
 			return output;
 		}
@@ -84,9 +81,9 @@ public class WithdrawServices {
 		return new ArrayList<Money>();
 
 	}
-	
-	public boolean changeAcountBalance(String AccNo, float remainingAmount){
-		
+
+	public boolean changeAcountBalance(String AccNo, float remainingAmount) {
+
 		return withdrawDao.changeAcountBalance(AccNo, remainingAmount);
 	}
 
