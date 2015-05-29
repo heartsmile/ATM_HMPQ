@@ -81,7 +81,20 @@ public class WithdrawalController {
 
 			// check balance
 			blController.checkBalance(modelMap);
-			float balance = (Float) modelMap.get("balance");
+			Integer balance = 0;
+			if(modelMap.containsKey("balance")){
+				balance = (Integer) modelMap.get("balance");
+			} else {
+				
+				//ATM can check balance
+				modelMap.addAttribute("msg", Constant.ATM_NOT_SERVICE);
+				jsonResult = "{\"result\": \"error\",\"message\": \"...\"}";
+
+				logger.info("ATM can check balance.");
+				
+				return jsonResult;
+			}
+			
 			if (moneyAmount <= balance) { // if had enough money
 
 				// write log
@@ -103,7 +116,7 @@ public class WithdrawalController {
 				}
 
 				// charge account balance
-				Float remainingBalance = (balance - moneyAmount);
+				Float remainingBalance = (float)(balance - moneyAmount);
 
 				if (withdrawService.changeAcountBalance(accountNo,
 						remainingBalance)) {

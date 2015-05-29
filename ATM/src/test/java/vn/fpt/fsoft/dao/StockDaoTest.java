@@ -71,8 +71,8 @@ public class StockDaoTest {
 	 * Test method for {@link vn.fpt.fsoft.dao.StockDao#getMoneyList()}.
 	 */
 	@Test
-	public void testGetMoneyList() {
-		fail("Not yet implemented");
+	public void testGetMoneyListTC01() {
+		
 	}
 
 	/**

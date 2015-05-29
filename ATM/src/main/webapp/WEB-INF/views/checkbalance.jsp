@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -67,7 +68,7 @@
 				</div>
 				<div id=content>
 					<div id=functionCenter class="input-group">
-						<label class="labelCenter">Your account have: ${balance} VND</label>
+						<label class="labelCenter">Your account have: <fmt:formatNumber maxFractionDigits="3" currencySymbol="" value="${balance}" type="currency"/> VND</label>
 						<br>
 						<label class="labelCenter">Do you want to print receipt?</label>
 					</div>
