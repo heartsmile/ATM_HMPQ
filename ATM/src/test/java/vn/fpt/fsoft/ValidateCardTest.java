@@ -25,6 +25,7 @@ public class ValidateCardTest {
 
 	public static final String CARDNO_ACCEPT_BUT_NOTEXIST_DATABASE = "1234555";
 	public static final String CARDNO_ACCEPT_EXIST_DATABASE = "123465";
+	public static final String CARDNO_ACCEPT_EXIST_DATABASE_BUT_BLOCK = "123456";
 	
 	@Test
 	public void testValidateCardNotExistsDatabase(){
@@ -40,6 +41,14 @@ public class ValidateCardTest {
 		cardReader.setCard(card);
 		
 		assertTrue(cardService.validateCard(cardReader));
+	}
+	
+	@Test
+	public void testValidateCardExistsDatabaseButBlock(){
+		card.setCardNo(CARDNO_ACCEPT_EXIST_DATABASE_BUT_BLOCK);
+		cardReader.setCard(card);
+		
+		assertFalse(cardService.validateCard(cardReader));
 	}
 
 }
