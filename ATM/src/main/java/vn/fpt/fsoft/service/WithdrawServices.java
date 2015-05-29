@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import vn.fpt.fsoft.dao.StockDao;
+import vn.fpt.fsoft.dao.WithdrawDao;
 import vn.fpt.fsoft.model.Money;
 
 /**
@@ -27,7 +28,7 @@ public class WithdrawServices {
 	private StockDao stDao;
 
 	@Autowired
-	private WithdrawalDao withdrawDao;
+	private WithdrawDao withdrawDao;
 
 	@Autowired
 	private SessionFactory sessionFactory;
