@@ -1,5 +1,5 @@
 #main {
-	margin-top:8%;
+	margin-top: 8%;
 	width: 70%;
 	margin-left: auto;
 	margin-right: auto;
@@ -56,24 +56,29 @@
 }
 
 #below #board #cardBoard #cardInsert #insertPanel {
-	height: 50%;
-	width: 95%;
-	margin-top: 30%;
+	height: 60%;
+	width: 90%;
+	margin-top: 17%;
 	margin-bottom: 20%;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 5%;
+	margin-right: 5%;
 	background-color: #eff7b7;
 }
 
 #below #board #cardBoard #cardInsert #insertPanel label {
 	margin-top: 6%;
-	width: 90%; margin-left : 5%;
-	margin-bottom: 3%;
+	width: 90%;
 	margin-left: 5%;
+	margin-right:5%;
+	margin-bottom: 3%;
+	height: 20%;
 }
 
 #below #board #cardBoard #cardInsert #insertPanel label img {
 	width: 100%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #below #board #cardBoard #cardInsert #insertPanel button {
@@ -97,13 +102,17 @@
 	margin-top: 2%;
 	margin-left: auto;
 	margin-right: auto;
+	padding-top: 5%;
+	padding-bottom: 5%;
 }
 
 #below #board #cardBoard #cardPick #pickPanel button {
 	width: 80%;
+	height: 28%;
 	margin-left: 10%;
 	margin-right: 10%;
-	margin-top: 7%;
+	margin-top: 2%;
+	margin-bottom: 2%;
 }
 
 #left {
@@ -218,14 +227,14 @@
 	clear: none;
 	margin-top: 40px;
 }
+
 #screen #content #functionCenter #welcome {
 	margin-left: 20%;
 	margin-right: 20%;
 	margin-top: 10%;
-	
 }
 
-#screen #content #functionCenter input{
+#screen #content #functionCenter input {
 	width: 100%;
 }
 
