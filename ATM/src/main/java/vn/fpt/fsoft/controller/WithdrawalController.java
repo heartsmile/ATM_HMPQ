@@ -4,9 +4,6 @@
 package vn.fpt.fsoft.controller;
 
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
-import com.mysql.jdbc.log.Log4JLogger;
-
 import vn.fpt.fsoft.constant.Constant;
 import vn.fpt.fsoft.model.Card;
 import vn.fpt.fsoft.model.Money;
@@ -32,6 +26,8 @@ import vn.fpt.fsoft.service.WithdrawServices;
 @SessionAttributes({ "card", "msg", "listMoney", "receiptRequire" })
 public class WithdrawalController {
 		
+	final static Logger logger = Logger.getLogger(WithdrawalController.class);
+	
 	@Autowired
 	private WithdrawServices withdrawService;
 
@@ -65,6 +61,9 @@ public class WithdrawalController {
 			// Invalid amount of money
 			modelMap.addAttribute("msg", Constant.INVALID_AMOUNT);
 			jsonResult = "{\"result\": \"error\",\"message\": \"...\"}";
+			
+			logger.info(Constant.INVALID_AMOUNT);
+			
 			return jsonResult;
 		} else {
 			moneyAmount = Integer.parseInt(amountMoney);
@@ -74,6 +73,8 @@ public class WithdrawalController {
 		if (moneyAmount % 50000 == 0 && moneyAmount != 0
 				&& moneyAmount <= 10000000) { // If valid amount of money
 
+			logger.info("Validate amount of money success!");
+			
 			// check balance
 			blController.checkBalance(modelMap);
 			float balance = (Float) modelMap.get("balance");
@@ -91,6 +92,9 @@ public class WithdrawalController {
 					// ATM doesn't have enough money
 					modelMap.addAttribute("msg", Constant.ATM_NOT_SERVICE);
 					jsonResult = "{\"result\": \"error\",\"message\": \"...\"}";
+					
+					logger.info("ATM don't have enough money.");
+					
 					return jsonResult;
 				}
 
@@ -99,24 +103,31 @@ public class WithdrawalController {
 
 				if (withdrawService.changeAcountBalance(accountNo,
 						remainingBalance)) {
-
+					logger.info("Charge money successful!");
+					
 					// put list Money to modelMap and it will be get in JSP page
 					// (receive money)
 					modelMap.put("listMoney", listMoney);
 					jsonResult = "{\"result\": \"success\",\"message\": \"Withdraw success\"}";
+					
+					logger.info("Withdraw successful!");					
 				} else {
 
 					// charge account balance fail
 					modelMap.addAttribute("msg", Constant.ATM_NOT_SERVICE);
 					jsonResult = "{\"result\": \"error\",\"message\": \"...\"}";
+					
+					logger.info("Charge account balance fail");
 					return jsonResult;
 				}
 
 			} else {
 
-				// Not enough money
+				// Not enough balance
 				modelMap.addAttribute("msg", Constant.NOT_ENOUGH_MONEY);
 				jsonResult = "{\"result\": \"error\",\"message\": \"...\"}";
+				
+				logger.info("User doesn't have enough balance.");
 			}
 
 		} else {
@@ -124,6 +135,8 @@ public class WithdrawalController {
 			// Invalid amount of money
 			modelMap.addAttribute("msg", Constant.INVALID_AMOUNT);
 			jsonResult = "{\"result\": \"error\",\"message\": \"...\"}";
+			
+			logger.info("Invalid amount of money.");
 		}
 
 		return jsonResult;
@@ -134,6 +147,7 @@ public class WithdrawalController {
 
 		modelMap.remove("card");
 		modelMap.remove("msg");
+		logger.info("Ejecting card.");
 
 		return "EjectCard";
 	}
@@ -142,6 +156,7 @@ public class WithdrawalController {
 	public String ejectCardDone(ModelMap modelMap) {
 
 		// check if have money if session
+		@SuppressWarnings("unchecked")
 		List<Money> listMoney = (List<Money>) modelMap.get("listMoney");
 		if (listMoney != null) {
 			return "ReturnMoney";

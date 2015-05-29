@@ -1,13 +1,11 @@
 package vn.fpt.fsoft.entity;
 
-import java.math.BigDecimal;
 import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Money {

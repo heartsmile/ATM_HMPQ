@@ -2,9 +2,6 @@ package vn.fpt.fsoft.model;
 
 import java.util.Date;
 
-import javax.annotation.PostConstruct;
-
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,8 +12,11 @@ public class Card {
 
 	private String cardNo;
 	private String PIN;
+	@SuppressWarnings("unused")
 	private Date startDate;
+	@SuppressWarnings("unused")
 	private Date expriedDate;
+	@SuppressWarnings("unused")
 	private String accountNo;
 	public String status;
 	private int attempt;
@@ -69,5 +69,7 @@ public class Card {
 	public void reset(){
 		attempt = 0;
 	}
+	
+	
 	
 }

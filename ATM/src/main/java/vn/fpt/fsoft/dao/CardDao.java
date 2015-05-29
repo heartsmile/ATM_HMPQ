@@ -2,17 +2,11 @@ package vn.fpt.fsoft.dao;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Projection;
-import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.transaction.annotation.Transactional;
 
 import vn.fpt.fsoft.entity.Account;
 import vn.fpt.fsoft.entity.Card;
@@ -108,7 +102,7 @@ public class CardDao {
 		Session session = sessionFactory.getCurrentSession();
 		
 		session.beginTransaction();
-		int i = session.createQuery(sql).setInteger("attempt", attempt).setString("cardno", cardNo).executeUpdate();
+		session.createQuery(sql).setInteger("attempt", attempt).setString("cardno", cardNo).executeUpdate();
 		session.getTransaction().commit();
 	}
 }

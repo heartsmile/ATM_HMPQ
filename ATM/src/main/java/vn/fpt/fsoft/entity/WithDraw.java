@@ -1,12 +1,8 @@
 package vn.fpt.fsoft.entity;
 
-import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 

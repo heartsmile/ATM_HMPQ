@@ -8,10 +8,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.hibernate.Session;
+import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import vn.fpt.fsoft.dao.StockDao;
 import vn.fpt.fsoft.dao.WithdrawDao;
@@ -21,9 +21,11 @@ import vn.fpt.fsoft.model.Money;
  * @author QuanTA5
  *
  */
-@Component
+@Service
 public class WithdrawServices {
 
+	final static Logger logger = Logger.getLogger(WithdrawServices.class);
+	
 	@Autowired
 	private StockDao stDao;
 
@@ -35,6 +37,8 @@ public class WithdrawServices {
 
 	public List<Money> dispenseCash(int amount) {
 
+		logger.info("Dispensing cash...");
+		
 		List<Money> output = new ArrayList<Money>();
 		List<Money> stockList = stDao.getMoneyList(1);
 
@@ -73,7 +77,8 @@ public class WithdrawServices {
 		}
 
 		if (tempAmount == amount) { // If ATM has enough money
-
+			
+			logger.info("ATM has enough cash.");
 			// change remaining money(cash) in ATM
 			stDao.upDateCash(output, 1);
 			return output;
@@ -85,6 +90,8 @@ public class WithdrawServices {
 
 	public boolean changeAcountBalance(String AccNo, float remainingAmount) {
 
+		logger.info("Charging money from account...");
+		
 		return withdrawDao.changeAcountBalance(AccNo, remainingAmount);
 	}
 

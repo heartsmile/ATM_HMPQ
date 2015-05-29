@@ -1,6 +1,5 @@
 package vn.fpt.fsoft.entity;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Entity;

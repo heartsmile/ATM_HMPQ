@@ -27,5 +27,23 @@ public class Screen {
 		this.displayText = displayText;
 	}
 
+	public int getScreenID() {
+		return screenID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public String getDisplayText() {
+		return displayText;
+	}
+	
+	
+
 	
 }
