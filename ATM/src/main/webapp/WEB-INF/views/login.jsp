@@ -97,6 +97,9 @@
 					</div>
 				</div>
 				<div id=content>
+				<div id = "welcome">
+                        <center><b>WELCOME TO TP BANK</b></center>
+                     </div>
 					<div id="insertpin">
 						<center>
 							<input type="hidden" id="attempt" value="${attempt }">
@@ -115,7 +118,7 @@
 					</div>
 					<div id="valid">
 						<center>
-							<h3>Validating your pin....</h3>
+							<h4>Validating your pin....</h4>
 						</center>
 					</div>
 
