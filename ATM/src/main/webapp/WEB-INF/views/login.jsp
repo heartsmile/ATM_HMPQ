@@ -110,7 +110,7 @@
 									</tr>
 								</table>
 							</c:if>
-							<p>${message }</p>
+							 <center><h4>${message }</h4></center>
 						</center>
 					</div>
 					<div id="valid">
