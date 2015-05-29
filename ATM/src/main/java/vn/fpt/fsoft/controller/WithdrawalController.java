@@ -225,7 +225,8 @@ public class WithdrawalController {
 
 		// delete listMoney from session
 		if (modelMap.containsKey("listMoney")) {
-			modelMap.remove("listMoney");
+			status.setComplete();
+		    request.removeAttribute("listMoney", WebRequest.SCOPE_SESSION);
 		}
 
 		// check if receipt require in session

@@ -23,11 +23,14 @@ public class StockDaoTest {
 	@Autowired
 	private StockDao stockDao;
 	
+	private List<Money> listMoneyComsumed;
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+		listMoneyComsumed = stockDao.getMoneyList(1);
 	}
 
 	/**
@@ -81,7 +84,7 @@ public class StockDaoTest {
 	 */
 	@Test
 	public void testUpDateCash() {
-		fail("Not yet implemented");
+		boolean result = stockDao.upDateCash(listMoneyComsumed, 1);
 	}
 
 }

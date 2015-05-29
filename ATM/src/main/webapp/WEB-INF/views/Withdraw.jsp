@@ -150,7 +150,7 @@
 							</td>
 							<td class="keyFuntion" colspan="2"><button
 									style="width: 80px;" type="button" class="btn btn-danger"
-									onclick="window.location.href='ejectCard'">Cancel</button></td>
+									onclick="window.location.href='welcome'">Cancel</button></td>
 						</tr>
 						<tr>
 							<td>

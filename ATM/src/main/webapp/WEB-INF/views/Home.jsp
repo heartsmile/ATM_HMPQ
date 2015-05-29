@@ -159,7 +159,8 @@
                                     onclick="keyType(this)">9</button>
                             </td>
                             <td class="keyFuntion" colspan="2"><button
-                                    style="width: 80px;" type="button" class="btn btn-danger">Cancel</button></td>
+                                    style="width: 80px;" type="button" class="btn btn-danger"
+                                    onclick="window.location.href='ejectCard'">Cancel</button></td>
                         </tr>
                         <tr>
                             <td>

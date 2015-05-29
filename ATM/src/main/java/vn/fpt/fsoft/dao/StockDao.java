@@ -55,25 +55,28 @@ public class StockDao {
 		return output;
 	}
 
-	public void upDateCash(List<vn.fpt.fsoft.model.Money> comsumed, int atmID) {
-		List<Money> moneyList = getMoneyList();
-		Session session = sessionFactory.getCurrentSession();
-		session.beginTransaction();
-		String sql = "update Stock s set s.quantity = s.quantity- :qual where s.moneyID = :moneyID and s.atmid ="
-				+ atmID;
-		for (vn.fpt.fsoft.model.Money m : comsumed) {
-			int moneyID = 0;
-			for (Money money : moneyList) {
-				if (money.getMoneyValue() == m.getValue()) {
-					moneyID = money.getMoneyID();
+	public boolean upDateCash(List<vn.fpt.fsoft.model.Money> comsumed, int atmID) {
+		
+		try {
+			List<Money> moneyList = getMoneyList();
+			Session session = sessionFactory.getCurrentSession();
+			session.beginTransaction();
+			String sql = "update Stock s set s.quantity = s.quantity- :qual where s.moneyID = :moneyID and s.atmid ="
+					+ atmID;
+			for (vn.fpt.fsoft.model.Money m : comsumed) {
+				int moneyID = 0;
+				for (Money money : moneyList) {
+					if (money.getMoneyValue() == m.getValue()) {
+						moneyID = money.getMoneyID();
+					}
 				}
+				session.createQuery(sql).setInteger("qual", m.getQuantity())
+						.setInteger("moneyID", moneyID).executeUpdate();
 			}
-
-			session.createQuery(sql).setInteger("qual", m.getQuantity())
-					.setInteger("moneyID", moneyID).executeUpdate();
-
+			session.getTransaction().commit();
+		} catch (Exception ex) {
+			return false;
 		}
-		session.getTransaction().commit();
-
+		return true;
 	}
 }

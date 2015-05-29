@@ -113,7 +113,8 @@
 									onclick="keyType(this)">3</button>
 							</td>
 							<td class="keyFuntion" colspan="2"><button
-									style="width: 80px;" type="button" class="btn btn-success" onclick="window.location.href='addReceiptRequire'">Enter</button></td>
+									style="width: 80px;" type="button" class="btn btn-success" 
+									onclick="window.location.href='addReceiptRequire'">Enter</button></td>
 							
 						</tr>
 						<tr>
