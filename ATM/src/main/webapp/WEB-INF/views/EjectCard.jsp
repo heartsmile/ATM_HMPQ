@@ -73,6 +73,7 @@
 				</div>
 				<div id=content>
 					<div id=functionCenter>
+						
 						<label class="labelCenter" id="welcome">Please receive your card! </label>
 					</div>
 					<div id=functionRight>

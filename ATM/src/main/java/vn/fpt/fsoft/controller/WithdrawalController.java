@@ -95,6 +95,7 @@ public class WithdrawalController {
 				return jsonResult;
 			}
 			
+			System.out.println(balance);
 			if (moneyAmount <= balance) { // if had enough money
 
 				// write log

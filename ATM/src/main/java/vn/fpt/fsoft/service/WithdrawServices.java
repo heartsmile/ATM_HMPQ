@@ -25,7 +25,7 @@ import vn.fpt.fsoft.model.Money;
 public class WithdrawServices {
 
 	final static Logger logger = Logger.getLogger(WithdrawServices.class);
-	
+
 	@Autowired
 	private StockDao stDao;
 
@@ -38,7 +38,7 @@ public class WithdrawServices {
 	public List<Money> dispenseCash(int amount) {
 
 		logger.info("Dispensing cash...");
-		
+
 		List<Money> output = new ArrayList<Money>();
 		List<Money> stockList = stDao.getMoneyList(1);
 
@@ -77,7 +77,7 @@ public class WithdrawServices {
 		}
 
 		if (tempAmount == amount) { // If ATM has enough money
-			
+
 			logger.info("ATM has enough cash.");
 			
 			// change remaining money(cash) in ATM
@@ -92,7 +92,7 @@ public class WithdrawServices {
 	public boolean changeAcountBalance(String AccNo, float remainingAmount) {
 
 		logger.info("Charging money from account...");
-		
+
 		return withdrawDao.changeAcountBalance(AccNo, remainingAmount);
 	}
 

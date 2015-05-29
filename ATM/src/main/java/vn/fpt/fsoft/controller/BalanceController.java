@@ -25,8 +25,4 @@ public class BalanceController {
 		return "checkbalance";
 	}
 	
-	@RequestMapping("/printreceipt")
-	public String printReceipt(ModelMap modelMap){
-		return "PrintReceipt";
-	}
 }
