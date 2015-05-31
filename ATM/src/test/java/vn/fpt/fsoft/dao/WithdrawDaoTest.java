@@ -51,7 +51,7 @@ public class WithdrawDaoTest {
 	@Test
 	public void testChangeAcountBalanceTC02() {
 		boolean result = withdrawDao.changeAcountBalance(accNo, 0);
-		assertFalse(result);
+		assertTrue(result);
 	}
 	
 	/**
@@ -68,8 +68,8 @@ public class WithdrawDaoTest {
 	 */
 	@Test
 	public void testChangeAcountBalanceTC04() {
-		boolean result = withdrawDao.changeAcountBalance(accNo, 999999999);
-		assertTrue(result);
+		boolean result = withdrawDao.changeAcountBalance("2342342341", 999999999);
+		assertFalse(result);
 	}
 
 }

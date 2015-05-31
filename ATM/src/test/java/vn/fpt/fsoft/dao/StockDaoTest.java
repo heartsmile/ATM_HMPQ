@@ -78,13 +78,36 @@ public class StockDaoTest {
 		List<vn.fpt.fsoft.entity.Money> listMoney = stockDao.getMoneyList();
 		assertTrue(listMoney.size() > 0);
 	}
+	
+	/**
+	 * Test method for {@link vn.fpt.fsoft.dao.StockDao#getMoneyList()}.
+	 */
+	@Test
+	public void testGetMoneyListTC02() {
+		//remove add cash from stock
+		
+		List<vn.fpt.fsoft.entity.Money> listMoney = stockDao.getMoneyList();
+		assertTrue(listMoney.size() == 0);
+	}
 
 	/**
 	 * Test method for {@link vn.fpt.fsoft.dao.StockDao#upDateCash(java.util.List, int)}.
 	 */
 	@Test
-	public void testUpDateCash() {
+	public void testUpDateCashTC01() {
 		boolean result = stockDao.upDateCash(listMoneyComsumed, 1);
+		assertTrue(result);
+	}
+	
+	/**
+	 * Test method for {@link vn.fpt.fsoft.dao.StockDao#upDateCash(java.util.List, int)}.
+	 */
+	@Test
+	public void testUpDateCashTC02() {
+		listMoneyComsumed.removeAll(listMoneyComsumed);
+		
+		boolean result = stockDao.upDateCash(listMoneyComsumed, 1);
+		assertFalse(result);
 	}
 
 }
