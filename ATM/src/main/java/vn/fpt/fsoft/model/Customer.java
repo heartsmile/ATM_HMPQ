@@ -22,9 +22,9 @@ public class Customer {
 	public void withDraw(ATM inATM, Card inCard, int inAmount) {
 		//
 	}
-	
-	public void checkBalance(ATM inATM, Card inCard){
-		
+
+	public void checkBalance(ATM inATM, Card inCard) {
+
 	}
 
 	public void transfer(ATM inATM, Card inCard, int inToAccount, int inAmount) {
@@ -58,5 +58,14 @@ public class Customer {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	public boolean equals(Customer o) {
+		if ((this.getName() == o.getName())
+				&& (this.getEmail() == o.getEmail())
+				&& (this.getPhone() == o.getPhone())) {
+			return true;
+		}
+		return false;
+	}
+
 }

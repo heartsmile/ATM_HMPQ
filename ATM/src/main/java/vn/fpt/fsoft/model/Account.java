@@ -32,4 +32,13 @@ public class Account {
 		this.customer = customer;
 	}
 
+	public boolean equals(Account o) {
+		if ((this.getAccountID() == o.getAccountID())
+				&& (this.getBalance() == o.getBalance())
+				&& (this.getCustomer() == o.getCustomer())) {
+			return true;
+		}
+		return false;
+	}
+
 }

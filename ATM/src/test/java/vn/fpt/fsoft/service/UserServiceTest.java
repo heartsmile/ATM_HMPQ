@@ -1,7 +1,5 @@
 package vn.fpt.fsoft.service;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
+import vn.fpt.fsoft.model.Account;
 import vn.fpt.fsoft.model.Card;
 import vn.fpt.fsoft.model.CardReader;
 
@@ -39,10 +38,15 @@ public class UserServiceTest {
 	public void testGetAccountEquals(){
 		card.setCardNo(CARDNO_ACCEPT);
 		cardReader.setCard(card);
-		float balance = userService.getAccount(card).getBalance();
-		float expected = 3000000f;
 		
-		Assert.isTrue(balance == expected);
+		Account account = userService.getAccount(card);
+		
+		Account expected = new Account();
+		expected.setAccountID(123456);
+		expected.setBalance((float) 2.0E8);
+		expected.setCustomer(null);
+		
+		Assert.isTrue(expected.equals(account));
 	}
 	
 	@Test
@@ -50,9 +54,13 @@ public class UserServiceTest {
 		card.setCardNo(CARDNO_ACCEPT);
 		cardReader.setCard(card);
 		
-		float balance = userService.getAccount(card).getBalance();
-		float checked = 300000f;
+		Account account = userService.getAccount(card);
 		
-		Assert.isTrue(balance != checked);
+		Account expected = new Account();
+		expected.setAccountID(123456);
+		expected.setBalance((float) 2.0E7);
+		expected.setCustomer(null);
+		
+		Assert.isTrue(!expected.equals(account));
 	}
 }
