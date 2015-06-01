@@ -24,7 +24,7 @@ public class UserService {
 				check = true;
 			} else {
 
-				if (attempt == 3) {
+				if (cardReader.checkAttempt(attempt)) {
 					card.block();
 					card.setAttempt(1);
 					cardReader.swallowCard();

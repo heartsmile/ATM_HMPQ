@@ -49,9 +49,14 @@ public class CardReader {
 		//DO SOMETHING
 	}
 
-	public void checkAttempt() {
+	public boolean checkAttempt(int attempt) {
 		
-		//DO SOMETHING
+		boolean check = false;
+		if(attempt == 3){
+			check = true;
+		}
+		
+		return check;
 	}
 	
 	public void setCard(Card card){
