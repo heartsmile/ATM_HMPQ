@@ -101,12 +101,11 @@
 					</div>
 				</div>
 				<div id=content>
-					<div id="welcome">
-						<center>
-							<b>WELCOME TO TP BANK</b>
-						</center>
-					</div>
+				
 					<div id="insertpin">
+					<div id = "welcome">
+                        <center><b>WELCOME TO TP BANK</b></center>
+                     </div>
 						<center>
 							<input type="hidden" id="attempt" value="${attempt }">
 							<c:if test="${empty attempt or attempt < 3}">
@@ -123,7 +122,7 @@
 								<h4>${message }</h4>
 							</center>
 						</center>
-					</div>
+					</div><br><br><br><br>
 					<div id="valid">
 						<center>
 							<h4>Validating your pin....</h4>
