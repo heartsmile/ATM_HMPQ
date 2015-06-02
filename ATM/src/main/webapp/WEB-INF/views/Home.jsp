@@ -3,15 +3,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
+<script
+	src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+	
+<script
+	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+	
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"
-    href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script
-    src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <title>Home</title>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -24,7 +26,7 @@
     	$('#check').hide();
 
         $('#card1').click(function() {
-            $('#cardid').val('1234567');
+            $('#cardid').val('123456');
             return false;
         });
 

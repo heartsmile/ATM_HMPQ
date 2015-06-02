@@ -6,15 +6,20 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+	
 <script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+	
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
-<title>Insert title here</title>
+
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+	
+<title>Login</title>
 <script type="text/javascript">
 	$(document).ready(function() {
 
@@ -68,8 +73,7 @@
 		<div id="center" class="panel panel-default">
 			<div id="left">
 				<div id="leftContent">
-					<button type="button" class="functionButton"
-						onclick="window.location.href='withdraw'">
+					<button type="button" class="functionButton">
 						<img
 							src="${pageContext.request.contextPath}/resources/imgs/arrow.png">
 					</button>
@@ -97,9 +101,11 @@
 					</div>
 				</div>
 				<div id=content>
-				<div id = "welcome">
-                        <center><b>WELCOME TO TP BANK</b></center>
-                     </div>
+					<div id="welcome">
+						<center>
+							<b>WELCOME TO TP BANK</b>
+						</center>
+					</div>
 					<div id="insertpin">
 						<center>
 							<input type="hidden" id="attempt" value="${attempt }">
@@ -113,7 +119,9 @@
 									</tr>
 								</table>
 							</c:if>
-							 <center><h4>${message }</h4></center>
+							<center>
+								<h4>${message }</h4>
+							</center>
 						</center>
 					</div>
 					<div id="valid">
